@@ -1,0 +1,184 @@
+Övningar JavaScript
+Gör de första övningarna antingen i webbläsarens JavaScript-konsol eller i repl.it (rekommenderas)
+
+
+
+<-------------------------------1 Datatyper, variabler, konsolen---------------------------->
+1 Vilka datatyper är följande uttryck? Tips: använd typeof för att kontrollera ditt svar 
+Exempelvis kan man svara att första uppgiften är datatypen Number och har värdet 1,01. Se till att du förstår varför resultatet blir det som det blir.
+1	1.01											14	true + true + false
+2	'false'											15	5 && 8
+3	null											16	5 || 8
+4	pancake											17	!5
+5	1 / 0											18	!!5
+6	false || true									19	true && false || false && true
+7	"123" - 0										20	typeof (typeof true)
+8	"1000" / 10										21	1 + 2 * 3 + 4 * 5 + 6
+9	123.4 - ''										22	2 < 3
+10	'5' + "0" / '2'									23	'två' < 'tre'
+11	'5' + "0" / '5' + 0								24	17 === 17.0
+12	'1' + '5' - '4' * '2' - '3'						25	17 === '17'
+13	'kalle' - 5										26	17.000000000000000000001 == 17
+													27	undefined || null || 0 || false || "foo"
+
+2 Vilket värde kommer variabeln z att ha efter att respektive kodrad har körts? (7 svar)
+Kör den här kodraden före varje rad när du testar: let x, y, z;
+1	z = 5;
+2	z++;
+3	--z;
+4	z += 15;
+5	x = 8;  y = 16;  z = y - x;
+6	x = 10;  z = x++;
+7	x = 2;  y = 5;  x = x + y;  y = x + y;  z = y;
+
+3 Skriv ett program som frågar vad användaren heter och skriver ut "Välkommen <NN>!" där <NN> är användarens namn. Tips: använd console.log för att skriva ut och prompt för att hämta input från användaren. Se till att spara namnet i en variabel. Exempel: 
+let x = prompt("Meddelande"); 
+console.log(x); 
+
+4 Skriv ett program som frågar användaren efter två tal och sparar dem i variabler. Sedan ska det skriva ut talens summa, differens och produkt.
+
+5 Skriv ett program som frågar användaren efter ett tal. Programmet ska skriva ut talet avrundat till ett heltal. Extra utmaning: skriv ut talet avrundat till en decimal i stället.
+
+
+
+<---------------------------------2 Kontrollstrukturer och programflöde------------------------->
+1 Skriv ett program som frågar användaren efter ett lösenord. Hitta på ett hemligt lösenord och spara det i en variabel. När användaren har skrivit in ett ord ska programmet jämföra med det sparade lösenordet och skriva ut om det var rätt eller inte. Använd en if-sats.
+
+2 Skriv ett program som frågar användaren efter ett tal. Det ska skriva ut om talet är mindre än 100, lika med 100 eller större.
+
+3 Skriv ett program som frågar användaren efter ett tal mellan 1 och 100. Programmet ska ha ett hemligt tal lagrat i en variabel. Det ska fortsätta fråga användaren till dess att användaren gissar det hemliga talet. Om man gissade för högt eller för lågt så ska det skrivas ut, så att användaren har en rimlig chans att klara det.
+Exempel: programmet har det hemliga talet 27. Användaren gissar på 50. Programmet skriver ut att användaren gissade för högt. Användaren gissar på 20. Programmet skriver ut att det var för lågt. Användaren gissar på 27. Programmet skriver ut att det var rätt och avslutas.
+Extra utmaning: slumpa det hemliga talet med hjälp av Math.random och farbror google. Spara antalet gissningar i en variabel och skriv ut det när användaren gissat rätt.
+
+4 Skriv ett program som ber användaren skriva in en månad. Programmet ska göra om månaden till månadens siffervärde. T.ex. ska januari bli 1 och december 12. Använd switch. Jämför din lösning med en klasskamrat när du är klar.
+
+5 Skriv ett program som skriver ut talen 1 till 16 med hjälp av en loop.
+
+6 Skriv ett program som har talet 65536 i en variabel. Så länge som variabeln är större än 2 ska programmet loopa, skriva ut talet och sedan dela variabeln med 2.
+
+7 Skriv ett program som loopar och frågar användaren efter en sträng. Så länge som strängen inte är en tom sträng så ska programmet lägga ihop den med tidigare strängar, med ett mellanrum. Om användaren t.ex. har skrivit "ord1" tidigare och skriver "ord2" ska den nya strängen bli "ord1 ord2". Fortsätt loopa tills användaren skickar en tom sträng eller en punkt.
+
+7b (ny) Skriv ett program som skriver ut de jämna talen 20 till 2 i den ordningen, med hjälp av en loop.
+
+8 Skriv ett program som frågar användaren efter ett tal. Programmet ska loopa så länge som talet är större än 2. Varje loop ska programmet välja: om talet är udda, multiplicera talet med 3 och lägg till 1. Om talet är jämnt, dela det med 2. Skriv ut det nya talet varje varv i loopen.
+
+
+
+
+<--------------------------------------3 Funktioner-------------------------------------->
+1 Vad skrivs ut av följande koder?
+
+1	function foo() {
+2		console.log("test");
+3	}
+4	foo("hej");
+
+
+1	var a = foo(3);
+2	console.log(a);
+3	function foo(i) {
+4		return i * i;
+5	}
+
+
+1	console.log( foo(3, 5) );
+2	function foo(x, y) {
+3		return x * y;
+4	}
+
+
+1	let x = 2;
+2	let y = 3
+3	let a = foo(foo(x) + foo(y));
+4	console.log(a);
+5	function foo(i) {
+6		return 5 * i;
+7	}
+
+
+1	let a = 5;
+2	function foo(a) {
+3		a++;
+4	}
+5	a += 2;
+6	console.log(a);
+
+
+1	var foo = function(i) {
+2		return 2*i*i;
+3	};
+4	var goo = function(x, y)
+5	{
+6		return x(y);
+7	};
+8	var a = goo(foo, 3);
+9	console.log(a);
+
+
+2a Skriv en funktion add som lägger ihop två tal och returnerar resultatet.
+2b Skriv en funktion multi som multiplicerar tre tal och returnerar resultatet. Vad händer om man anropar funktionen med färre än tre parametrar?
+2c Skriv en funktion som tar fyra tal som parametrar. Den ska multiplicera de tre första och lägga ihop resultatet med den fjärde. Använd funktionerna add och multi.
+
+3 Skriv en funktion som tar tre parametrar: name, city och favoriteColor.  Den ska skriva ut informationen till konsolen i en fullständig mening. Exempel "Välkommen Namn från Göteborg med favvofärg blått".
+
+4 Skriv en funktion som tar en parameter som ska vara en sträng och returnerar ett tal. Om det inte går att göra om parametern till ett tal ska funktionen returnera strängen oförändrad. Tips: minus noll.
+
+5 Skriv en funktion som tar två parametrar och talar om ifall de är samma datatyp. Tips: använd typeof.
+Exempel: sameDataType('test', 'topp') == true  men  sameDataType(5, '5') == false.
+
+6 Skriv en funktion som avrundar ett tal till två decimaler. Tips: man kan använda Math.round(x) för att avrunda ett tal till närmast heltal.
+
+7 Skriv en funktion med namnet paragraph, som tar en parameter. Den ska returnera en sträng enligt det här exemplet: paragraph('hej') == '<p>hej</p>' 
+
+8 Skriv en funktion som säger hur många dagar en månad har. Funktionen ska ha en parameter, som är en sträng för varje månad. Strängen ska vara de tre första tecknen i månadens namn, dvs jan, feb, mar, apr osv. Funktionen ska returnera ett tal. Exempelvis så är daysInMonth("mar") == 31
+function daysInMonth(month="jan") { .. }
+
+9 Skriv en funktion som returnerar de tre första tecknen i en sträng. Använd funktionen substring(startindex, endindex), som plockar ut en del av en sträng. Exempel: 'programmering'.substring(3,7) blir 'gram'.
+
+10 Skriv en funktion som du kallar year som plockar ut året från en sträng i datumformat. Funktionen ska ta en parameter, som ska vara en sträng. Strängen ska alltid ha 10 tecken och följa mönstret 'YYYY-MM-DD'. Man ska kunna skriva year('2016-11-02') och få talet 2016 som resultat.
+
+11 Skriv två funktioner med namn month och day, som plockar ut månad respektive dag ur en datumsträng som i uppgift 9. Skriv med hjälp av dem en funktion med namnet daysBetween som räknar ut hur många dagar det är mellan två datum. Du kan förenkla funktionen genom att låtsas att alla månader har 30 dagar.
+Exempel: daysBetween('2017-08-30', '2017-09-02') == 4 
+
+12 Skriv en funktion som översätter en temperatur i Fahrenheit till Celsius. Den ska ta en parameter och returnera ett värde. Formeln finns på den här sidan.
+
+13 Skriv en funktion som returnerar summan av de 100 första heltalen. Använd en loop. Förbättra sedan funktionen så att den tar en parameter, som är hur många tal som ska läggas ihop.
+
+14 Skriv en funktion som tar en sträng som parameter och returnerar strängen baklänges.
+
+15 Extrauppgift. Skriv en funktion som tar ett tal som parameter och returnerar true om det är ett primtal. Ett primtal är ett heltal som bara är delbart med sig självt och 1. De första primtalen är 2, 3, 5, 7. Men 8 är inget primtal eftersom 8 / 2 == 4.
+Obs! Det går att hitta färdiga lösningar på internet. Men om du plockar en färdig lösning så lär du dig mindre än om du försöker göra en själv.
+Fundera på: vilket är det enklaste sättet att skriva funktionen? Vilket sätt är effektivast? Vad innebär effektivitet för ett datorprogram?
+
+16 Skriv en funktion factorial(n) som räknar ut fakulteten för ett heltal med en loop. Fakulteten tar man genom att multiplicera talet med alla mindre tal ner till 1. Exempel: 1! == 1, 2! == 2*1, 4! == 4*3*2*1 osv.
+
+17 Skriv en ny funktion som beräknar fakulteten rekursivt.
+
+18 Fibonacci-tal är en talserie som börjar med 0, 1. Sedan får man nästa tal i talserien genom att lägga ihop de två föregående. Exempel: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, … Skriv en funktion fibonacci(n) som beräknar det n:te Fibonacci-talet rekursivt. Extrauppgift: gör en funktion som räknar ut det med en loop.
+
+19 Skriv en rekursiv funktion som tar en sträng som parameter och returnerar en ny sträng, som är den gamla strängen baklänges.
+
+
+
+
+
+<------------------------------------4 Listor--------------------------------------->
+1a Skriv en funktion som tar två parametrar som ska vara heltal. Den ska returnera ett slumptal vars värde är mellan parametrarna.
+Exempel: rand(2, 5) -> 2 (eller 3, 4, 5)
+
+1b Skriv en funktion som skapar en lista med slumptal. Funktionen ska ta tre parametrar: hur lång listan ska vara och mellan vilka tal som slumptalet ska ligga.
+
+2 Skriv funktioner som räknar ut summan och medelvärdet för alla tal i en lista.
+Skriv funktioner som returnerar det största respektive det minsta värdet i en lista.
+
+3 Skriv en funktion som kontrollerar om ett specifikt värde finns i en lista. Funktionen ska ta två parametrar: en lista och värdet man söker efter.
+
+4 Skriv en funktion med namnet filterLessThan. Den ska ta en lista och ett tal som parametrar och returnera en ny lista. Den nya listan ska ha alla element som finns i den första listan och är strikt mindre än parametern.
+
+5 Skriv en funktion som tar en lista och ett tal x som parametrar. Den ska skriva ut alla värden i listan i en rektangel, genom att radbryta efter x värden. Använd '\n' för att lägga till en radbrytning till en sträng.
+Exempel: printList([1, 2, 3, 4], 2) --> "1 2\n3 4"
+Extra utmaning: se till så att funktionen gör raka kolumner, dvs infogar extra mellanrum för tal som har färre antal siffror. Tips: du behöver ta hjälp av andra funktioner för att göra det bra. T.ex. max-funktionen från uppgift 2.
+
+6 Skriv en funktion som slår ihop två sorterade listor till en lista. Exempel:
+merge([1, 3, 5], [2, 4, 6]) → [1, 2, 3, 4, 5, 6])
+ 
