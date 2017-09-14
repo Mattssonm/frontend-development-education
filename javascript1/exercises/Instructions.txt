@@ -181,4 +181,16 @@ Extra utmaning: se till så att funktionen gör raka kolumner, dvs infogar extra
 
 6 Skriv en funktion som slår ihop två sorterade listor till en lista. Exempel:
 merge([1, 3, 5], [2, 4, 6]) → [1, 2, 3, 4, 5, 6])
- 
+
+7 Skriv en funktion som slumpar fram ett djur. Funktionen ska inte ha några invärden och returnera en sträng med antingen cat, dog, horse, pig eller elephant.
+
+8a Skriv en funktion som slumpar fram en lista med djur. Funktionen ska ta emot ett heltal x och returnera en lista med x stycken slumpvis valda djur som antingen är cat, dog, zebra, monkey, horse, pig eller elephant.
+
+8b Gör om a-övningen så att listan som returneras inte har några dubletter dvs samma djur förekommer enbart en gång. Detta gör att funktionen inte kan ta emot en siffra som är större än 7.
+
+9 
+Sorteringsövningar
+
+Skriv en implementation av Bubble Sort i JavaScript
+
+Skriv en implementation av Merge Sort i JavaScript

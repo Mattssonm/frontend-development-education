@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>1. Datatyper, variabler, konsolen</title>
+    <script>
+        //1a.
+        function generateRandom(num1, num2) {
+            return Math.round(Math.random() * (num2 - num1) + num1);
+        }
+        //1b. 
+        function generateRandomArr(arrLength, min, max) {
+            let result = [];
+            for (let i = 0; i<arrLength; i++) {
+                result[i] = generateRandom(min, max);
+            }
+            return result;
+        }
+        let testArr = [4,6,8,7];
+        //2.
+        function sumArr(arr) {
+            let sum = 0;
+            for (let i = 0; i<arr.length; i++) {
+                sum+=arr[i];
+            }
+            return sum;
+        }
+        function avgArr(arr) {
+            return sumArr(arr)/arr.length;
+        }
+        function lowestNum(arr) {
+            let tempNum = arr[0];
+            for (let i = 1; i<arr.length; i++) {
+                if (tempNum>arr[i])
+                    tempNum = arr[i];
+            }
+            return tempNum;    
+        }
+        function highestNum(arr) {
+            let tempNum = arr[0];
+            for (let i = 1; i<arr.length; i++) {
+                if (tempNum<arr[i])
+                    tempNum = arr[i];
+            }
+            return tempNum;    
+        }
+        //3
+        function findNum(arr, numToFind) {
+            function largestNum(element){
+               return element == numToFind;
+            }
+        return arr.findIndex(largestNum);
+        }
+        //4 
+        function filterLessThan(arr, lessThanNum) {
+            let filteredArr = arr.filter(function(element){
+               return element < lessThanNum; 
+            });
+            return filteredArr;
+        }
+        //5
+        //radbryta efter x värden
+    </script>
+</head>
+
+<body>
+    <h1>1 Datatyper, variabler, konsolen</h1>
+    <p>The following is the code I wrote during my education. For exercise instructions see instructions.txt (swedish).</p>
+</body>
+
+</html>
