@@ -4,9 +4,11 @@
 <title>4. Listor</title>
     <script>
         //1a.
+        //Mathrandom example num1=3, num2=7, --> Math.round(Math.random() * (4) + 3) ---> Math.round (0.181723176*4+3) 
         function generateRandom(num1, num2) {
-            return Math.round(Math.random() * (num2 - num1) + num1);
+            return Math.round(Math.random() * ((num2-1) - (num1+1)) + (num1+1));
         }
+        
         //1b. 
         function generateRandomArr(arrLength, min, max) {
             let result = [];
@@ -44,18 +46,38 @@
             return tempNum;    
         }
         //3
-        function findNum(arr, numToFind) {
+        /*function findNum(arr, numToFind) {
             function largestNum(element){
                return element == numToFind;
             }
-        return arr.findIndex(largestNum);
+        return arr.findIndex(largestNum);*/
+        let example = ["Hej", 10, false];
+        
+        function search (list, value) {
+            let found = false;
+            for (i=0; i<list.length; i++){
+                if (value===list[i]){
+                    found = true;
+                    break;
+                }
+            }
+            return found;
         }
         //4 
-        function filterLessThan(arr, lessThanNum) {
+        function filterLessThanWithFilter(arr, lessThanNum) {
             let filteredArr = arr.filter(function(element){
                return element < lessThanNum; 
             });
             return filteredArr;
+        }
+        function filterLessThanWithoutFilter(arr, lessThanNum) {
+            let result = [];
+            for (i=0; i<arr.length; i++){
+                if (arr[i]<lessThanNum){
+                    result.push(arr[i]);
+                }        
+            }
+            return result;
         }
         //5
         function rectangle(arr, breakNum) {
@@ -70,7 +92,7 @@
             return result;
         }
         //6
-       let merge1 = [1, 3, 5], merge2 = [2, 4, 6];
+        /*let merge1 = [1, 3, 5], merge2 = [2, 4, 6];
         function merge(arr1, arr2) {
             let result = [arr1];
             let longest = 0; 
@@ -81,11 +103,19 @@
                 longestArr = arr2.length;
             }
             
-            
-            while(arr2 !== undefined){
-                
+            for (let i = 0; i < longest; i++)
+            {
+                //using splice
+                if (arr1[i]<arr2[i] && arr1[i+1]>arr2[i]) {
+                    arr1.splice(i, 0, arr2[i])
+                }
+                    
             }
             return result;
+        }*/
+        //7
+        function randomAnimal() {
+            
         }
         
     </script>
