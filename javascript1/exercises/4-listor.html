@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>1. Datatyper, variabler, konsolen</title>
+<title>4. Listor</title>
     <script>
         //1a.
         function generateRandom(num1, num2) {
@@ -15,7 +15,7 @@
             }
             return result;
         }
-        let testArr = [4,6,8,7];
+        let testArr = [4, 6, 8, 7, 8, 9, 2, 6, 4, 3, 1, 1, 7, 6, 6, 4];
         //2.
         function sumArr(arr) {
             let sum = 0;
@@ -58,12 +58,41 @@
             return filteredArr;
         }
         //5
-        //radbryta efter x värden
+        function rectangle(arr, breakNum) {
+            let result = "";
+            for (let i = 0; i < arr.length; i++) {
+                //breakline at breakNum
+                if (breakNum == i)
+                    result += "\n ";
+                //
+                result += arr[i]+" ";
+            }
+            return result;
+        }
+        //6
+       let merge1 = [1, 3, 5], merge2 = [2, 4, 6];
+        function merge(arr1, arr2) {
+            let result = [arr1];
+            let longest = 0; 
+            if (arr1.length > arr2.length) {
+                longestArr = arr1.length;
+            }
+            else {
+                longestArr = arr2.length;
+            }
+            
+            
+            while(arr2 !== undefined){
+                
+            }
+            return result;
+        }
+        
     </script>
 </head>
 
 <body>
-    <h1>1 Datatyper, variabler, konsolen</h1>
+    <h1>4. Listor</h1>
     <p>The following is the code I wrote during my education. For exercise instructions see instructions.txt (swedish).</p>
 </body>
 
