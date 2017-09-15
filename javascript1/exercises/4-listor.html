@@ -92,32 +92,108 @@
             return result;
         }
         //6
-        /*let merge1 = [1, 3, 5], merge2 = [2, 4, 6];
+        let merge1 = [1, 3, 5], merge2 = [2, 4, 6];
         function merge(arr1, arr2) {
+            //In this function I choose to merge arr2 onto arr1. The elements of arr2 need to be sorted into the correct spot in arr1.  
             let result = [arr1];
-            let longest = 0; 
-            if (arr1.length > arr2.length) {
-                longestArr = arr1.length;
-            }
-            else {
-                longestArr = arr2.length;
-            }
             
-            for (let i = 0; i < longest; i++)
-            {
-                //using splice
-                if (arr1[i]<arr2[i] && arr1[i+1]>arr2[i]) {
-                    arr1.splice(i, 0, arr2[i])
+            //we need a loop to go trough all of the elements of arr2
+            for (let j = 0; j < arr2.length; j++) {
+                
+                //we need a loop to go trough the elements of arr1 and see where the current element of arr2 should be. 
+                for (let i = 0; i < arr1.length; i++) {
+                    let correctSpot;
+                    //Checking if the first spot is the correct spot
+                    if (arr1[i-1] == undefined && arr1[i]> arr2[j])
+                        correctSpot = i;
+                    //Checking if the correct spot is somewhere in the middle
+                    else if (arr1[i]<arr2[0] && arr1[i+1]>arr2[j])
+                        correctSpot = i;
+                    //Checking if the last spot is the correct spot, the user might have given us an unsorted list
+                    else if (arr1[i+1] == undefined && arr1[i]<arr2[j])
+                        correctSpot = i;
+
+                //when we found the correct spot we put the element there using splice
+                    result.splice(correctSpot, 0, arr2[j])
                 }
-                    
             }
             return result;
-        }*/
-        //7
-        function randomAnimal() {
-            
         }
-        
+        //7
+        //updated to work with assignment 8, because why build it again? :D
+        function randomAnimal() {
+            randomNumber = generateRandom(0,8);
+            switch (randomNumber) {
+                case 1:
+                    return "cat";
+                    break;
+                case 2:
+                    return "dog";
+                    break;
+                case 3:
+                    return "zebra";
+                    break;
+                case 4: 
+                    return "monkey";
+                    break;
+                case 5:
+                    return "horse";
+                    break;
+                case 6: 
+                    return "pig";
+                    break;
+                case 7: 
+                    return "elephant";
+                    break;
+                default:
+                    return "Did not receive a number between 1 - 7";
+            }
+        }
+        //8a 
+        function randomAnimalArr(numOfAnimals) {
+            let results = [];
+            for (let i = 0; i < numOfAnimals; i++) {
+                results.push(randomAnimal());
+            }
+            return results;
+        }
+       
+        //8b
+        function randomAnimalArrNoRepeats(numOfAnimals) {
+            //Some tests to check appropriate use of function
+            if (numOfAnimals> 7)
+                return "Can not generate more than 7 animals"
+            else if (numOfAnimals<1)
+                return "Can not generate less than 1 animal, obviously :)"
+            //add a random animal to results
+            let results = [randomAnimal()];
+            
+            //use a function which has two arguments, list and the animal to check. Check if the animal already exists in given array, and return true or false.
+            function doesAnimalExist(arr, animal) {
+                let animalBoolean = false;
+                for (let i=0; i<arr.length; i++) {
+                    if (animal == arr[i])
+                        return true
+                }
+                return animalBoolean;
+            }
+            
+            //we need a loop to control how many animals we will add to results which should be equal to numOfAnimals. This loop should not continue to the next animal before an unique animal has been added.
+            for (let i = 1; i < numOfAnimals; i++) {
+                //We need to generate a random animal,
+                aRandomAnimal = randomAnimal();
+                //and see if this already exists in the results list. Use the function above. 
+                if(doesAnimalExist(results, aRandomAnimal)){
+                    //if it does exist already, we need to generate a new animal and check again.
+                    i--;
+                }
+                //else we push the animal to results
+                else {
+                    results.push(aRandomAnimal);
+                }
+            }
+            return results;
+        }
     </script>
 </head>
 
