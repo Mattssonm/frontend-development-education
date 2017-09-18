@@ -158,8 +158,12 @@ Fundera på: vilket är det enklaste sättet att skriva funktionen? Vilket sätt
 
 19 Skriv en rekursiv funktion som tar en sträng som parameter och returnerar en ny sträng, som är den gamla strängen baklänges.
 
-
-
+20 Recursion
+Here’s another way to define whether a positive whole number is even or odd:
+ Zero is even.
+ One is odd.
+For any other number N, its evenness is the same as N - 2.
+Define a recursive function isEven corresponding to this description. The function should accept a number parameter and return a Boolean.
 
 
 <------------------------------------4 Listor--------------------------------------->
