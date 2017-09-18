@@ -194,3 +194,49 @@ Sorteringsövningar
 Skriv en implementation av Bubble Sort i JavaScript
 
 Skriv en implementation av Merge Sort i JavaScript
+
+10
+Recursion
+ Zero is even.
+ One is odd.
+For any other number N, its evenness is the same as N - 2.
+Define a recursive function isEven corresponding to this description. The function should accept a number parameter and return a Boolean.
+
+<------------------------------5 Objekt------------------------------>
+1 Skapa ett objekt med följande egenskaper:
+ett värde av datatypen Number
+en string
+en bool
+en funktion
+ett tomt objekt
+
+2 Skapa ett objekt som innehåller ett objekt, som i sin tur innehåller ett tomt objekt. Tänk på indraget!
+
+3 Skapa en funktion med namnet makeBook. Funktionen ska ha parametrarna title, author och genres. Title och author ska vara strängar, genres ska vara en lista. Funktionen ska returnera ett objekt som har parametrarna som egenskaper.
+
+4 Skapa ett objekt som motsvarar en cirkel. Det ska ha en egenskap för radien och en egenskap som är en funktion som räknar ut cirkelns area. Funktionen ska inte ta några parametrar utan använda egenskapen för radien med hjälp av this.
+
+5 Skapa ett objekt som motsvarar en rektangel. Det ska ha egenskaper för bredd, höjd och för att räkna ut arean. Skriv en funktion med namnet isCircleBigger som tar objekt för en cirkel och en rektangel och returnerar true om cirkelns area är större än rektangelns area.
+
+6 Skriv en funktion med namnet printObject. Den ska ta ett godtyckligt objekt som parameter och skriva ut på konsolen vilka egenskaper objektet har och vad de har för värde. Använd en for-loop för att gå igenom alla objektets egenskaper.
+
+7 Använd funktionen makeBook för att skapa tre bok-objekt och lägg dem i en lista. Skriv en funktion med namnet filterAuthor. Den ska ta en lista med bok-objekt och en sträng som parametrar och returnera en ny lista med alla bok-objekt i den första listan som har samma författare som strängen. Exempel:
+filterAuthor(lista, "J.R.R. Tolkien")
+
+8 Skriv en funktion med namnet capitalizeBooks. Den ska ta en lista med bok-objekt som parameter och inte returnera något. Funktionen ska ändra alla objekt i listan så att titel och författare på respektive bok börjar med stor bokstav. Kolla tipsen på originaldokumentet.
+
+9 Skriv en funktion med namnet filterGenre. Den ska ta en lista med bok-objekt och en sträng som parameter och returnera en ny lista med alla bok-objekt som matchar strängen. Ett bok-objekt matchar om egenskapen genres, som är en lista, innehåller en likadan sträng som parametern.
+Exempel: filterGenre(lista, 'fantasy')
+
+10 Skapa en lista med minst fyra landsobjekt. Objekten ska ha egenskaperna name och population. Använd internet för att leta upp data för fyra länder. Skriv sedan en funktion med namnet countryPopulationSum, som räknar ut hur många invånare det finns i alla länder i listan.
+
+11 Skriv en funktion med namnet countryFindSmallest, som tar en lista med landsobjekt och returnerar det objekt som har den minsta befolkningen. Skriv ut namnet på landet på konsolen.
+
+12 Skriv en funktion med namnet countryComparePopulation. Den ska ta två landsobjekt som parametrar: a och b. Om a är mindre än b ska funktionen returnera -1, om a är större ska den returnera +1, annars returnera 0.
+
+13 Man kan sortera elementen i en lista genom att använda array-funktionen sort. Standardsorteringen jämför värden som om de vore strängar. Den används om man anropar sort utan parametrar. Om man vill sortera elementen i en lista på annat sätt så kan man skicka med en jämförelsefunktion som parameter.
+Exempel: lista.sort(compareFunction)
+Jämförelsefunktionen ska ta två värden av den typ som finns i listan och returnera ett tal som talar om för sorteringsfunktionen om elementen behöver byta plats. Använd funktionen countryComparePopulation för att sortera listan. Skriv också en jämförelsefunktion som jämför landsobjekt baserat på namn
+
+JSON
+1 Skriv ett program som använder JSON.parse och JSON.stringify. Använd prompt (med försiktighet) för att hämta input från användaren. Testa dina funktioner med bok-objekten från uppgift 5.7.

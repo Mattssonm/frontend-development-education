@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>3. Functions</title>
+    <script>
+        //1
+        
+        //2
+        var add = function (x, y){
+            return x + y;
+        }
+
+        var multi = function (x, y, z){
+          return x*y*z;
+        }
+
+        function doubleFunction (a, b, c, d){
+          return add(multi(a, b, c), d) 
+        }
+        //4
+        function fromStrToNumber (str){
+          var testStr = str - 0;
+          if (isNaN(testStr) === true)
+            return str
+          else
+            return Number(str);
+        }
+        
+        //5
+        function sameDataType (a, b) {
+          return typeof a  === typeof b
+        }
+        
+        //6
+        function roundToTwoDec(x){
+          return Math.round(x*100)/100
+        }
+        //7
+        function paragraph (x) {
+          return "<p>" + x + "</p>"
+        }
+        
+        //8
+        function daysInMonth (str){
+          switch (str) {
+            case "jan":
+              return  31;
+            case "feb":
+              return 28;
+            case "mar":
+              return 31;
+            case "apr":
+              return 30;
+            case "may":
+              return 31;
+            case "jun":
+              return 30;
+            default:
+              return "Did not write a month";
+          }
+        }
+        
+        //9
+        var firstThreeLetters = function (str){
+          return str.substring(0, 3)
+        }
+        //10
+        function TakeOutYear (theDate) {
+          return theDate.substring(0, 4)
+        }
+        
+        
+        //11
+        //see the project calculateDaysBetweenDates
+        //12
+        function fahrenheitToCelcius (fahrenheit) {
+          return (fahrenheit  -  32)  *  5/9;
+        }
+        
+        //14
+        function reverseString (str) {
+          var newString = "";
+          for (var i = str.length; i>=0; i--) {
+            newString += str.charAt(i);
+          }
+          return newString;
+        }
+        reverseString("");
+        //16
+        function loopingDown (x){
+          var i = x-1; 
+          while (i > 0){
+          x *= i;
+          i--;
+          }
+          return x;
+        }
+
+        //17
+        function factorial (n) {
+          //basefall
+          if (n === 1)
+            return 1; 
+          //recursionfall
+          else 
+            return n*(factorial(n-1));
+        }
+        //18
+        //used this: https://sv.wikipedia.org/wiki/Fibonaccital
+        function fibonacci(n) {
+          if(n>1){
+            return fibonacci(n-1) + fibonacci (n-2);
+          }
+          else if (n == 1) {
+            return 1;
+          }
+          else {
+            return 0;
+          }
+        }
+        //19
+        function reverseStringRecursion (str) {
+          var strLength = str.length;
+          if (strLength === 0)
+            return "";
+          else {
+            return str.charAt(strLength-1) + reverseStringRecursion(str.slice(0, strLength-1))
+          }
+        }
+        //extra recursion exercise
+        
+    </script>
+</head>
+
+<body>
+    <h1>3. Functions</h1>
+    <p>The following is the code I wrote during my education. For exercise instructions see instructions.txt (swedish).</p>
+</body>
+
+</html>
