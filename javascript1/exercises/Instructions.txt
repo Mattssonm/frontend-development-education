@@ -199,13 +199,6 @@ Skriv en implementation av Bubble Sort i JavaScript
 
 Skriv en implementation av Merge Sort i JavaScript
 
-10
-Recursion
- Zero is even.
- One is odd.
-For any other number N, its evenness is the same as N - 2.
-Define a recursive function isEven corresponding to this description. The function should accept a number parameter and return a Boolean.
-
 <------------------------------5 Objekt------------------------------>
 1 Skapa ett objekt med följande egenskaper:
 ett värde av datatypen Number
