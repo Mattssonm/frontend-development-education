@@ -21,6 +21,115 @@
                 }
             }
         };
+        //3
+        
+        function makeBook(title, author, genres) {
+            let book = {
+                title: title,
+                author: author,
+                genres: genres
+            }
+            return book;
+        }
+        //4
+        
+        let aCircle = {
+            radius: 6,
+            area: function() {
+                return Math.PI * this.radius * this.radius
+            }
+        }
+        //5
+        let aRectangle = {
+            width: 5,
+            height: 2,
+            area: function() {
+                return this.width * this.height
+            }
+        }
+        
+        function isCircleBigger(circle, rectangle) {
+            return (circle.area()<rectangle.area())
+        }
+        //6
+        function printObject(obj) {
+            for (element in obj) {
+                console.log(element + ": " + obj[element]);
+            }
+        }
+        //7 
+        let listOfBooks = [];
+        
+        listOfBooks.push(makeBook("harry Potter", "J.K. Rowling", ["fantasy", "fiction"]));
+        listOfBooks.push(makeBook("Eloquent Javascript", "marijn Haverbeke", ["non-fiction", "programming"]));
+        listOfBooks.push(makeBook("game Of Thrones", "george R.R. Martin", ["fantasy", "fiction"]));
+        listOfBooks.push(makeBook("Game Of Thrones 2", "George R.R. Martin", ["fantasy", "fiction"]));
+        
+        function filterAuthor(bookArr, authorToFilter) {
+            let newListOfBooks = [];
+            //for loop which goes through the whole list
+            for (var i = 0; i<bookArr.length; i++) {
+                //if the current book has the author we are looking for, push the book to the new list.
+                if (bookArr[i].author == authorToFilter) {
+                    newListOfBooks.push(bookArr[i]);
+                }
+            }
+            return newListOfBooks;
+        }
+        //8
+        function capitalizeBooks(bookArr) {
+            for (element of bookArr) {
+                element.author = element.author.charAt(0).toUpperCase() + element.author.substring(1, element.author.length);  
+                element.title = element.title.charAt(0).toUpperCase() + element.title.substring(1, element.title.length);
+            }
+        }
+        //9 
+        function filterGenre (bookArr, genreToFilter) {
+            let newListOfBooks = [];
+            //loop through the array
+            for (book of bookArr) {
+                //loop through the the whole genre
+                for (let i = 0; i < book.genres.length; i++ ) {
+                //use indexOf to see if the genreToFilter is not equal to -1. If true, push the book to newListOfBooks
+                    if (book.genres.indexOf(genreToFilter) !== -1) {
+                        newListOfBooks.push(book);
+                        break;
+                    }
+                }
+            }
+            return newListOfBooks;
+        }
+        //10
+        let countries = [
+            {name: "Sweden", population: 9903000}, 
+            {name: "Norway", population: 5233000}, 
+            {name: "Finland", population: 5495000}, 
+            {name: "Denmark", population: 5731000}];
+        
+        function countryPopulationSum (listOfCountries) {
+            let sum = 0;
+            //loop trough the list
+            for (country of listOfCountries) {
+                //add population to sum
+                sum += country.population;
+            }
+            return sum;
+        }
+        //11
+        function countryFindSmallest(listOfCountries) {
+            let isSmallest = countries[0].population;
+            for (country of listOfCountries) {
+                if (isSmallest > country.population) {
+                    isSmallest = country.population;
+                }
+            }
+            for (country of listOfCountries) {
+                if (country.population == isSmallest){
+                    console.log(country.name);   
+                    return country
+                }
+            }
+        }
     </script>
 </head>
 
