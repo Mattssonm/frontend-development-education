@@ -92,35 +92,37 @@
             return result;
         }
         //6
-        let merge1 = [1, 3, 5], merge2 = [2, 4, 6];
+        let merge1 = [1, 3, 5, 24, 25, 50], merge2 = [2, 4, 6, 25];
         function merge(arr1, arr2) {
-            //In this function I choose to merge arr2 onto arr1. The elements of arr2 need to be sorted into the correct spot in arr1.  
-            let result = [arr1];
-            
-            //we need a loop to go trough all of the elements of arr2
-            for (let j = 0; j < arr2.length; j++) {
-                
-                //we need a loop to go trough the elements of arr1 and see where the current element of arr2 should be. 
-                for (let i = 0; i < arr1.length; i++) {
-                    let correctSpot;
-                    //Checking if the first spot is the correct spot
-                    if (arr1[i-1] == undefined && arr1[i]> arr2[j])
-                        correctSpot = i;
-                    //Checking if the correct spot is somewhere in the middle
-                    else if (arr1[i]<arr2[0] && arr1[i+1]>arr2[j])
-                        correctSpot = i;
-                    //Checking if the last spot is the correct spot, the user might have given us an unsorted list
-                    else if (arr1[i+1] == undefined && arr1[i]<arr2[j])
-                        correctSpot = i;
-
-                //when we found the correct spot we put the element there using splice
-                    result.splice(correctSpot, 0, arr2[j])
+            let results = [];
+            //loop through both arrays until, all numbers have been removed
+            while (arr1.length !== 0 || arr2.length !== 0) {
+                //if arr1 is empty push arr2[0] and remove it
+                if (arr1[0] === undefined) {
+                    results.push(arr2[0]);
+                    arr2.splice(0,1);
+                }
+                //if arr2 is empty push arr1[0] and remove it
+                else if (arr2[0]===undefined) {
+                    results.push(arr1[0]); 
+                    arr1.splice(0,1);
+                }
+                //if arr1[0] is smaller than arr2[0], push it and remove it.
+                else if (arr1[0]<arr2[0]) {
+                    results.push(arr1[0]);
+                    arr1.splice(0,1);
+                }
+                //else push arr2[0] and remove it.
+                else  {
+                    results.push(arr2[0]);
+                    arr2.splice(0,1);
                 }
             }
-            return result;
+            return results;
         }
+            
         //7
-        //updated to work with assignment 8, because why build it again? :D
+        //updated this with other animals so it would work with assignment 8, because why build it again? :D
         function randomAnimal() {
             randomNumber = generateRandom(0,8);
             switch (randomNumber) {
