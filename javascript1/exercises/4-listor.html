@@ -196,6 +196,27 @@
             }
             return results;
         }
+        //9a
+        function bubbleSort(arr) {
+            let sortedArr = arr;
+            let numOfTimesSorted = 0;
+            //we need two loops, first loop will loop untill all numbers have been sorted, with bubble sort this means once for each number in the array(loops = array.length).
+            for (let i = 0; i < sortedArr.length; i++) {
+                
+                //The second loop will do the actual sorting. It loops through array.length - 1 since it doesn't compare the last number. After the sorting loop has run, next time the sorting loop only needs to run array.length-numOfTimesSorted, since the largest number has been sorted and doesnt need to be compared. 
+                for (let j = 0; j < sortedArr.length - (1 + numOfTimesSorted); j++) {
+                    //compare j > j+1, swap if true.
+                    if (sortedArr[j]>sortedArr[j+1]) {
+                        let temp = sortedArr[j];
+                        sortedArr[j] = sortedArr[j+1];
+                        sortedArr[j+1] = temp;
+                    }
+                }
+            //numOfTimesSorted++ happens after each sorting loop.  
+                numOfTimesSorted++;
+            }
+            return sortedArr;
+        }
     </script>
 </head>
 
