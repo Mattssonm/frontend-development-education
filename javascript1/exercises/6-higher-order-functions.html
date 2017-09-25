@@ -13,10 +13,47 @@
         //4 
         let always42 = () => 42;
         //5
-        let strToConsole = str => {console.log(str)};
+        let strToConsole = str => console.log(str);
         //6
         //let biggerThanZero = num => {if(num>0) {return true}};
         let biggerThanZero = num => num>0;
+        //7 
+        let equalTo10Or12 = num => num==10||num==12;
+        //8 
+        let includesOch = str => str.includes("och");
+        //9 
+        // higher order functions: forEach, filter, map, reduce, find, some, every.
+        let listOfBooks = [
+                {title: "Harry Potter", author: "J.K. Rowling", genres: ["fantasy", "fiction"]}, 
+                {title: "Eloquent Javascript", author: "marijn Haverbeke", genres: ["non-fiction", "programming"]},
+                {title: "game Of Thrones", author: "George R.R. Martin", genres: ["fantasy", "fiction"]}, 
+                {title: "Game Of Thrones 2", author: "george R.R. Martin", genres: ["fantasy", "fiction"]}
+        ];
+            //5.7
+            function filterAuthor (arr, aut) {
+                return arr.filter(book => book.author == aut);  
+            } 
+            //5.8
+            function capitalizeBooks (arr) {
+                return arr.map(book => {
+                book.author = book.author.charAt(0).toUpperCase() + book.author.substring(1, book.author.length);  
+                book.title = book.title.charAt(0).toUpperCase() + book.title.substring(1, book.title.length);
+                });
+            }
+            //5.9
+            function filterGenre (arr, gen) {
+                return arr.filter (book => book.genres.includes(gen));
+            }
+            //5.10
+            let countries = [
+            {name: "Sweden", population: 9903000}, 
+            {name: "Norway", population: 5233000}, 
+            {name: "Finland", population: 5495000}, 
+            {name: "Denmark", population: 5731000}];
+            
+            function countryPopulationSum
+            
+            
     </script>
 </head>
 
