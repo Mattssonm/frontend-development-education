@@ -234,3 +234,39 @@ Jämförelsefunktionen ska ta två värden av den typ som finns i listan och ret
 
 JSON
 1 Skriv ett program som använder JSON.parse och JSON.stringify. Använd prompt (med försiktighet) för att hämta input från användaren. Testa dina funktioner med bok-objekten från uppgift 5.7.
+
+<-------------------------6. Higher order function------------------>
+
+1 Skriv en arrow function som gör samma sak som följande funktion:
+function vanlig(parameter) { return parameter; }
+
+2 Skriv en arrow function som tar ett tal som parameter och returnerar dubbla talet. Om man till exempel anropar funktionen med 5 som parameter ska den returnera 10.
+
+3 Skriv en arrow function som tar två tal som parametrar och returnerar deras medelvärde.
+
+4 Skriv en arrow function som inte tar några parametrar och alltid returnerar talet 42.
+
+5 Skriv en arrow function som tar en sträng som parameter och skriver ut den på konsolen.
+
+6 Skriv en arrow function som tar en parameter och returnerar true om den är större än noll.
+
+7 Skriv en arrow function som tar ett tal som parameter och returnerar true om talet är 10 eller 12.
+
+8 Skriv en arrow function som tar en parameter och returnerar true om den är en sträng som innehåller "och".
+
+9 Lös uppgifterna 5.7-12 med hjälp av higher order functions: forEach, filter, map, reduce, find, some, every.
+
+10 För den här uppgiften ska du utgå från följande listor:
+let listA = [2, 4, 8, 16, 32, 64, 128, 256];
+let listB = [10, 'b', -32, 'FF', 3.14, [], (x => x + 1), ' end'];
+
+Använd forEach för att skriva ut alla element i listA på konsolen.
+Använd forEach för att skriva ut alla element i listB som är strängar.
+Använd map för att skapa en kopia av listA, där alla element har minskats med ett: 1, 3, 7, osv.
+Använd map för att skapa en kopia av listB där varje element har konverterats till en sträng.
+Använd filter för att skapa en lista som innehåller alla element i listB som har datatypen String eller Number.
+Använd find för att hitta första elementet i listA som är större än 20.
+Använd reduce för att räkna ut summan av alla element i listA.
+Använd filter och reduce för att konkatenera alla strängar i listB.
+
+11 Skriv en funktion som returnerar en lista med tre slumpade heltal mellan 1 och 10. Ta reda på om listan innehåller några jämna tal, eller om rentav alla tal är jämna, med some och every. Skriv ut resultatet inklusive listan på konsolen.
