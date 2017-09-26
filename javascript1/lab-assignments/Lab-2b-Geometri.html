@@ -31,22 +31,72 @@
           return rectangle1.leftx < rectangle2.leftx;
         }
 
-        //Kolla ifall någon del överlappar med den andra. returnera true om så är fallet. 
-        function isOverlapping (rectangle1, rectangle2) {
-          //Den ena rektangeln kan överlappa den andra antingen horisontellt, vertikalt eller både och.
-          //vi fastställer de fyra hörnens kordinater
-          //1-----2
-          //|     |
-          //3-----4
-          //1 (leftx, topy)
-          //2 (leftx+width, topy)
-          //3 (leftx, topy+height)
-          //4 (leftx+width, topy+height)
-          //horisontell överlappning innebär att rec2 bryter rec1's linje 1-2 eller/och linje 3-4.
-          //vilka villkor måste vara sanna för att detta ska anses stämma? 
-            //1. xvärdena på rec2 ska vara emellan rec1's 1/3 och 2/4 x.
-            //2. 
+        /*Write a function called makeListOfCoordinates which saves a rectangles coordinates to a list according to following model:
+        0-----1
+        |     |
+        2-----3
+        (sides will now be refered to according to this model, for example, 2---3 or 1|3)
+        0 (leftx, topy)
+        1 (leftx+width, topy)
+        2 (leftx, topy+height)
+        3 (leftx+width, topy+height)*/
+        //listOfCoordinates = [[leftx, topy], [leftx+width, topy], [leftx, topy+height], [leftx, topy+height]]
+        function makeListOfCoordinates(rectangle) {
+            return [[rectangle.leftx, rectangle.topy], [rectangle.leftx+rectangle.width, rectangle.topy], [rectangle.leftx, rectangle.topy+rectangle.height], [rectangle.leftx, rectangle.topy+rectangle.height]];
         }
+        
+        
+        function isOverlapping (rectangle1, rectangle2) {
+  let rec1 = makeListOfCoordinates(rectangle1);
+  let rec2 = makeListOfCoordinates(rectangle2);
+  
+  //Write a function called listOfLinesOverlap which takes two lists of coordinates of rectangles as arguments, recA and recB. 
+  function listOfLinesOverlap(recA, recB) {
+    /*Write a function called linesOverlap which takes two lines, one horizontal and one vertical as arguments. The function takes a total of four lists as arguments (h1, h2, v1, v2). The first two arguments is the horizontal line list of coordinates, from left to right (For example side 0---1 0[x,y], 1[x,y]). For arguments three and four the vertical lines coordinates is passed from top to bottom (For example side 0|2. 0[x,y], 2[x,y]).*/
+      function linesOverlap(h1, h2, v1, v2) {
+        //For two lines to cross the following needs to be true:
+        //1. Vertical line's x (only has one) must be bigger than h1[0] and lesser than h2[0]
+        let testx = false;
+        let testy = false;
+        if (v1[0] > h1[0] && v1[0] < h2[0])
+            testx = true;
+        //2. Horizontal line's y (also only has one) must be bigger than v1[1] and lesser than v2[1]
+        if (h1[1] > v1[1] && h1[1] <v2[1])
+            testy = true;
+        //If any of these are not true, return false. If they both are true, return true.
+        return testx && testy;
+      }
+    //Now pass each set of lists following the model below into the linesOverlap function which returns true if any of the lines overlap. Push each test onto an array, to easier access of each tests value.
+    let arrayOfTests = [];
+    //linesOverlap( recA 0----1, with recB 0|2 and recB 1|3 )
+    arrayOfTests.push(linesOverlap(recA[0], recA[1], recB[0], recB[3]));
+    arrayOfTests.push(linesOverlap(recA[0], recA[1], recB[1], recB[3]));
+    //linesOverlap( recA 2----3, with recB 0|2 and recB 1|3 )
+    arrayOfTests.push(linesOverlap(recA[2], recA[3], recB[0], recB[2]));
+    arrayOfTests.push(linesOverlap(recA[2], recA[3], recB[1], recB[3]));
+    //linesOverlap( recB 0----1, with recA 0|2 and recA 1|3 )
+    arrayOfTests.push(linesOverlap(recB[0], recB[1], recA[0], recA[2]));
+    arrayOfTests.push(linesOverlap(recB[0], recB[1], recA[1], recA[3]));
+    //linesOverlap( recB 2----3, with recA 0|2 and recA 1|3 )
+    arrayOfTests.push(linesOverlap(recB[2], recB[3], recA[0], recA[2]));
+    arrayOfTests.push(linesOverlap(recB[2], recB[3], recA[1], recA[3]));
+    console.log("Här", arrayOfTests);
+    
+    let sumOfTests = false;
+    for (let test of arrayOfTests) {
+        if (test===true)
+            sumOfTests = true;
+    }
+    return sumOfTests;
+  }
+  return listOfLinesOverlap(rec1, rec2)
+  }
+        
+            //Write a function called isSurrounded which takes the list of coordinates of two rectangles and checks if one of the rectangles is fully surrounded by the other. 
+        
+        //Finally, if either listOfLinesOverlap or isSurrounded returns true, isOverlapping will return true.
+      
+        
 
         function distanceBetween(o1, o2) {
           //först kolla med isOverlapping, ifall true, returnera 0
@@ -60,9 +110,6 @@
 
         let rec1 = makeRectangle(6, 4, 5, 10);
         let rec2 = makeRectangle(2, 5, 7, 10);
-        rec1.moveRight(5);
-        console.log(rec1.circumference());
-        isLeftOf(rec1, rec2);
     </script>
 </head>
 
@@ -122,8 +169,47 @@
               2
     Detta måste vara sant:
     1. Kolla y först: recB0,1's y måste vara större än recA[0][1] och mindre än recA[2][1]
-    2. Kolla x: recA 0,2's x måste vara större än recB[0][1] och mindre än recB[1][1]
+    2. Kolla x: recA 0,2's x måste vara större än recB[0][0] och mindre än recB[1][0]
     Ifall dessa inte stämmer så korsar inte recA0,2 recB 0,1.
+    
+    en vertikal sida kan aldrig överlappa med en annan vertikal sida. och en rektangel kan inte korsa sig själv. Därför är det endast dessa tester som behöver göras. 
+    recA 0----1, mot recB 0|2 och recB 0|3
+    recA 2----3, mot recB 0|2 och recB 0|3
+    recB 0----1, mot recA 0|2 och recA 0|3
+    recB 2----3, mot recA 0|2 och recA 0|3
+    Ifall kontrollerna görs så här behövs bara ett test det som jämför det horizontella med det vertikala, vi slipper skriva ett tvärtom test.
+    
+    <h4>Implementering:</h4>
+    Write a function called isOverlapping which includes the following {:
+        Write a function called makeListOfCoordinates which saves a rectangles coordinates to a list according to following model:
+        0-----1
+        |     |
+        2-----3
+        0 (leftx, topy)
+        1 (leftx+width, topy)
+        2 (leftx, topy+height)
+        3 (leftx+width, topy+height)
+        listOfCoordinates = [[leftx, topy], [leftx+width, topy], [leftx, topy+height], [leftx, topy+height]]
+
+        Write a function called listOfLinesOverlap which takes two lists of coordinates of rectangels as arguments, recA and recB. 
+    
+            Write a function called linesOverlap which takes two lines, one horizontal and one vertical as arguments. The function takes a total of four lists as arguments (h1, h2, v1, v2). The first two arguments is the horizontal line list of coordinates, from left to right(For example side 0---1 0[x,y], 1[x,y]). For arguments three and four the vertical lines coordinates is passed from top to bottom (For example side 0|2. 0[x,y], 2[x,y]). 
+            
+            For two lines to cross the following needs to be true:
+            1. Vertical line's x (only has one) must be bigger than h1[0] and lesser than h2[0]
+            2. Horizontal line's y (also only has one) must be bigger than v1[1] and lesser than v2[1]
+            If any of these are not true, return false. If they both are true, return true.
+    
+    Now pass each set of lists following the model below into the linesOverlap function which returns true if any of the lines overlap. Push each test onto an array, to easier access of each tests value.
+        linesOverlap( recA 0----1, with recB 0|2 and recB 1|3 )
+        linesOverlap( recA 2----3, with recB 0|2 and recB 1|3 )
+        linesOverlap( recB 0----1, with recA 0|2 and recA 1|3 )
+        linesOverlap( recB 2----3, with recA 0|2 and recA 1|3 )
+
+        Write a function called isSurrounded which takes the list of coordinates of two rectangles and checks if one of the rectangles is fully surrounded by the other. 
+        
+        Finally, if either listOfLinesOverlap or isSurrounded returns true, isOverlapping will return true.
+    }
     
     </p>
 </body>
