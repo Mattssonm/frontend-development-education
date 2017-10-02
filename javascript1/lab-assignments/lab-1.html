@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Lab 1</title>
+    <script>
+      //1a
+      function findMin(list) {
+        if (list.length === 0) {
+          return null;
+        }
+        let tempNum = list[0];
+        for (let i = 1; i<list.length; i++) {
+          if (tempNum>list[i])
+            tempNum = list[i];
+        }
+      return tempNum;    
+      }
+      //1b
+      function doubleListNew(arr) {
+        let result = [];
+        for (i = 0; i < arr.length; i++) {
+          result.push(arr[i] *2);
+        }
+        return result;
+      }
+
+      function doubleListModify(arr2) {
+        for (i = 0; i < arr2.length; i++) {
+          arr2[i] *= 2;
+        }
+      }
+      //1c
+      function merge(arr1, arr2) {
+        let results = [];
+        let count1 = 0;
+        let count2 = 0;
+
+        //loop through both arrays until, all numbers have been added
+        while (count1 !== arr1.length || count2 !== arr2.length) {
+          //if count1 == arr1.length, push arr2[count2] and increase count2
+          if (count1 == arr1.length) {
+            results.push(arr2[count2]);
+            count2++;
+          }
+          //else if count2 == arr1.length, push arr1[count1] and increase count1
+          else if (count2 == arr2.length) {
+            results.push(arr1[count1]); 
+            count1++;
+          }
+          //else if arr1[count1] is smaller than arr2[count2], push it and increase count1.
+          else if (arr1[count1]<arr2[count2]) {
+            results.push(arr1[count1]);
+            count1++;
+          }
+          //else arr2[count2] must be smaller than count1, push it and increase count2.
+          else  {
+            results.push(arr2[count2]);
+            count2++;
+          }
+        }
+        return results;
+      }
+      //1d
+      function countVowels(str) {
+        if(str===undefined) 
+          return 0;
+        else {
+          let count = 0;
+          //Loop through every letter in the string.
+          for (let i = 0; i<str.length; i++) {
+            //If the letter is a vocal, increase count.
+            if (isVocal(str.charAt(i))===true)
+              count++;
+          }
+          return count;
+        }
+      }
+      function isVocal(letter) {
+        let letterCheck;
+        switch (letter) {
+          case "a":
+            letterCheck = true;
+            break;
+          case "e":
+            letterCheck = true;
+            break;
+          case "i": 
+            letterCheck = true;
+            break;
+          case "o": 
+            letterCheck = true;
+            break;
+          case "u": 
+            letterCheck = true;
+            break;
+          case "y":
+            letterCheck = true;
+            break;
+          default:
+            letterCheck = false;
+        }
+        return letterCheck;
+      }
+      //1e
+      function keepOdd(list) {
+        let oddNumList = [];
+        //Loop through the list 
+        for (let i = 0; i<list.length; i++) {
+          //If the number is odd and if it doesn't already exist in the new list, push it to the list
+          if (isOdd(list[i]) && oddNumList.indexOf(list[i]) === -1)
+            oddNumList.push(list[i]);
+        }
+        return oddNumList;
+      }
+      function isOdd(num) {
+        if (num === 1)  //base case
+          return true;
+        else if (num === 0) //base case
+          return false;
+        else if (num < 0) //handle negatives with a recursion call
+          return isOdd(num * -1);
+        else  //recursion call
+          return isOdd(num - 2); 
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Lab 1</h1>
+    <h2>Instructions: (swedish)</h2>
+    <p><strong>Lab 1a - findMin</strong>
+      <br>
+      Skriv en funktion som returnerar det minsta värdet i en array. Funktionen ska ta en array som parameter och returnera ett tal. Du kan förutsätta att arrayen bara innehåller tal.
+      <br>
+      <br>
+      <strong>Lab 1b - double</strong>
+      <br>
+      Skriv två funktioner med namnen doubleListNew och doubleListModify. Funktionerna ska ta en lista med tal som parameter.
+
+      doubleListNew ska returnera en ny lista som du producerar från parametern, genom ta varje värde gånger 2. Listan som är parameter ska vara oförändrad.
+
+      doubleListModify ska inte returnera något, utan den ska ändra i listan som är parameter till funktionen. Varje värde i listan ska dubbleras genom att ta det gånger 2.
+      <br>
+      <br>
+      <strong>Lab 1c - merge</strong>
+      <br>
+      Skriv en funktion med namnet merge som tar två parametrar och returnerar ett värde. Parametrarna ska vara två sorterade listor med tal. Funktionen ska returnera en ny lista som du skapar genom att slå ihop de två parametrarna. Den nya listan ska vara sorterad.
+      Ni får inte använda varken array-funktionen sort eller Bubble sort. Ni får inte heller använda någon form av konkatenering. Poängen med merge-funktionen är att man inte behöver sortera något mera.
+      <br>
+      <br>
+      <strong>Lab 1d - vowels</strong>
+      <br>
+      Skriv en funktion som räknar antalet engelska vokaler i en sträng.
+      Vokalerna i engelska alfabetet är: a, e, i, o, u, y. Använd charAt för att plocka ut ett tecken ur en sträng. Exempel:
+      'abcde'.charAt(2) --> 'c'
+      <br>
+      <br>
+      <strong> lab 1e - keepOdd</strong>
+      <br>
+      Skriv en funktion som tar en listan som parameter och returnerar en ny lista, som ska innehålla alla udda tal från den första. Listan ska inte innehålla några dubbletter.
+    </p>
+  </body>
+
+</html>
