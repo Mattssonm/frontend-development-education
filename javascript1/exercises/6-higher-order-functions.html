@@ -29,30 +29,36 @@
                 {title: "game Of Thrones", author: "George R.R. Martin", genres: ["fantasy", "fiction"]}, 
                 {title: "Game Of Thrones 2", author: "george R.R. Martin", genres: ["fantasy", "fiction"]}
         ];
-            //5.7
-            function filterAuthor (arr, aut) {
-                return arr.filter(book => book.author == aut);  
-            } 
-            //5.8
+        //9: 5.7
+        function filterAuthor (arr, aut) {
+            return arr.filter(book => book.author == aut);  
+        } 
+        //9: 5.8
             function capitalizeBooks (arr) {
-                return arr.map(book => {
-                book.author = book.author.charAt(0).toUpperCase() + book.author.substring(1, book.author.length);  
-                book.title = book.title.charAt(0).toUpperCase() + book.title.substring(1, book.title.length);
-                });
-            }
-            //5.9
-            function filterGenre (arr, gen) {
-                return arr.filter (book => book.genres.includes(gen));
-            }
-            //5.10
-            let countries = [
-            {name: "Sweden", population: 9903000}, 
-            {name: "Norway", population: 5233000}, 
-            {name: "Finland", population: 5495000}, 
-            {name: "Denmark", population: 5731000}];
-            
-            function countryPopulationSum
-            
+            let list = arr.map(book => {
+            book.author = book.author.charAt(0).toUpperCase() + book.author.substring(1, book.author.length)});
+            let list2 = list.map(book => {
+            book.title = book.title.charAt(0).toUpperCase() + book.title.substring(1, book.title.length);
+            });
+            return list2;
+        }
+        //9: 5.9
+        function filterGenre (arr, gen) {
+            return arr.filter(book => book.genres.includes(gen));
+        }
+        //9: 5.10
+        let countries = [
+        {name: "Sweden", population: 9903000}, 
+        {name: "Norway", population: 5233000}, 
+        {name: "Finland", population: 5495000}, 
+        {name: "Denmark", population: 5731000}];
+
+        function countryPopulationSum(countryArr) {
+            return countryArr.reduce(function(sum, country){
+               return sum + country.population; 
+            }, 0);
+        }
+        
             
     </script>
 </head>
