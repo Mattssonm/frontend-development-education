@@ -273,7 +273,18 @@ Använd filter och reduce för att konkatenera alla strängar i listB.
 
 <--------------------------7 HTML och CSS---------------------------->
 
-1 Skapa en egen HTML-sida där du skriver upp vad vi gick igenom på lektionen 2/10. Du ska använda alla HTML-element som finns i slides här. Sidan ska läggas upp med GitHub Pages. Skicka länken till läraren via slack när du är klar.
+1 Skapa en egen HTML-sida där du skriver upp vad vi gick igenom på lektionen 2/10. Du ska använda alla HTML-element som finns i slides här: 
+h1 - h6					          Rubriker (h = heading)
+p, pre, code				      Olika sorters textstycken
+a						              Länkar, a står för "anchor"
+strong, em, b, i, u			  Olika sätt att betona text
+br, hr, div, span, style	Radbrytning och taggar för formatering och layout
+img						            Bilder
+ul, ol, li					      Listor
+table					            Tabell för data
+form					            Formulär där användaren kan skriva in data
+style					            CSS-stil (kommer senare i kursen)
+Sidan ska läggas upp med GitHub Pages. Skicka länken till läraren via slack när du är klar.
 
 Övningarna 2-6 ska läggas upp på din GitHub-sida när du är klar. Index.html ska ha en länk till varje sida med namnet "Övning 7.x" där X är övningens nummer. Det är inte tillåtet att hitta på andra namn. Lägg bara upp länkar om du är klar med uppgiften!
 
