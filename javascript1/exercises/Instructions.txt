@@ -270,37 +270,3 @@ Använd reduce för att räkna ut summan av alla element i listA.
 Använd filter och reduce för att konkatenera alla strängar i listB.
 
 11 Skriv en funktion som returnerar en lista med tre slumpade heltal mellan 1 och 10. Ta reda på om listan innehåller några jämna tal, eller om rentav alla tal är jämna, med some och every. Skriv ut resultatet inklusive listan på konsolen.
-
-<--------------------------7 HTML och CSS---------------------------->
-
-1 Skapa en egen HTML-sida där du skriver upp vad vi gick igenom på lektionen 2/10. Du ska använda alla HTML-element som finns i slides här: 
-h1 - h6					          Rubriker (h = heading)
-p, pre, code				      Olika sorters textstycken
-a						              Länkar, a står för "anchor"
-strong, em, b, i, u			  Olika sätt att betona text
-br, hr, div, span, style	Radbrytning och taggar för formatering och layout
-img						            Bilder
-ul, ol, li					      Listor
-table					            Tabell för data
-form					            Formulär där användaren kan skriva in data
-style					            CSS-stil (kommer senare i kursen)
-Sidan ska läggas upp med GitHub Pages. Skicka länken till läraren via slack när du är klar.
-
-Övningarna 2-6 ska läggas upp på din GitHub-sida när du är klar. Index.html ska ha en länk till varje sida med namnet "Övning 7.x" där X är övningens nummer. Det är inte tillåtet att hitta på andra namn. Lägg bara upp länkar om du är klar med uppgiften!
-
-2 Skapa en ny HTML-sida som är så lik exemplet här (grunder, formatering) som möjligt. (behöver inte vara samma text) Du kan använda vilken texteditor du vill.
-
-3 Skapa en sida som är så lik exemplet här (textformatering) som möjligt.
-
-4 Skapa en sida som är så lik exemplet här (tabell, kantlinjer) som möjligt.
-
-5 Skapa en webbsida som är så lik exemplet här (positionering) som möjligt. Använd elementet div och sätt attributen bakground-color, border, position, left, top, width, height för att få rätt utseende. Tips: ändra storlek på webbläsarens fönster eller zooma in/ut så ser du tydligt om du har gjort rätt.
-
-6 Gör en ny version av övning 4 som använder flera div-element i stället för table.
-
-7 Skapa en ny sida med namnet html-exercises.html. Flytta länkarna till övningarna dit, från index.html. Index-sidan ska vara en sida där du presenterar dig själv och de projekt du har arbetat med. Så småningom kommer du vilja dela sidan till företag som du söker jobb hos. Några rubriker som är bra att ha med:
-presentation - vem är du
-länk till LinkedIn-kontot
-berätta om din utbildning
-berätta om det häftigaste projektet du har gjort hittills, med länk till GitHub-repot
-
