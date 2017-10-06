@@ -5,6 +5,9 @@ a {
 a:hover {
   text-decoration: underline;
 }
+p, a  {
+  font-size: 18px;
+}
 .center {
   text-align: center;
  }  
@@ -16,10 +19,8 @@ a:hover {
 }
 .courseDiv {
   background-color: white;
-  padding: 30px; 
   margin-left: 30%; 
   margin-right: 30%;
-  border: ridge;
 }
 #header {
   margin: auto;
@@ -56,4 +57,9 @@ a:hover {
 }
 #footer {
   margin: 40px auto;
+}
+#exerciseList {
+  list-style-type: none;
+  position:relative;
+  left: -15px;
 }
