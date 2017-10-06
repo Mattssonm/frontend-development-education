@@ -1,0 +1,59 @@
+a {
+  color: teal;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.center {
+  text-align: center;
+ }  
+.maxWidth {
+  max-width: 500px;
+}
+.contactLinks {
+  margin: 30px;
+}
+.courseDiv {
+  background-color: white;
+  padding: 30px; 
+  margin-left: 30%; 
+  margin-right: 30%;
+  border: ridge;
+}
+#header {
+  margin: auto;
+  margin-top: 5em;
+  overflow: auto;
+}
+#nameAndTitle {
+  float: right;
+  margin-right: 10%;
+  padding: 0;
+}
+#portfolioPic {
+  width: 9em;
+  border-radius: 100%;
+  float: left;
+}
+#name {
+  margin-top: 1em;
+  margin-bottom: 0;
+  padding: 0;
+}
+#title {
+  margin-top: 0;
+  padding: 0;
+  color: gray;
+  font-weight: none;
+  font-size: 1.5em;
+}
+#line {
+  margin: 30px auto 30px auto;
+}
+#bio {
+  margin: 0 auto;
+}
+#footer {
+  margin: 20px auto;
+}

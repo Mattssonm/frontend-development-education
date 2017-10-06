@@ -2,53 +2,25 @@
 <html>
   <head>
     <title>Frontend Development Education</title>
-    <style>
-      .center {
-        text-align: center;
-       }  
-      .courseDiv {
-        background-color: white;
-        padding: 30px; 
-        margin-left: 30%; 
-        margin-right: 30%;
-        border: ridge;
-      }
-      #header {
-        background-color: cadetblue;
-        border-bottom: solid;
-        padding: 10px;
-      }
-      body {
-        background-color: lightgray; 
-      }
-      body, html, h1 {
-        margin: 0;
-        padding: 0;
-      }
-      a {
-        color: cadetblue;
-        text-decoration: none;
-      }
-      a:hover {
-        color: black;
-      }
-    </style>
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
   </head>
   <body>
-    <div id="header">
-      <h1 class="center">Markus Mattsson</h1>
+    <div id="header" class="maxWidth">
+      <img id="portfolioPic" src="portfoliopic.jpg">
+      <div id="nameAndTitle">
+        <h1 id="name">Markus Mattsson</h1>
+        <p id="title">Javascript Developer</p>
+      </div>
     </div>
-    <h2 class="center">Courses:</h2>
-    <div class="courseDiv">
-      <h3 class="center">HTML & CSS</h3>
-      <ul>
-        <li><a href="/frontend-development-education/html-css/exercises/7.1-exercise.html">Övning 7.1</a></li>
-        <li><a href="/frontend-development-education/html-css/exercises/7.2-exercise.html">Övning 7.2</a></li>
-        <li><a href="/frontend-development-education/html-css/exercises/7.3-exercise.html">Övning 7.3</a></li>
-        <li><a href="/frontend-development-education/html-css/exercises/7.4-exercise.html">Övning 7.4</a></li>
-        <li><a href="/frontend-development-education/html-css/exercises/7.5-exercise.html">Övning 7.5</a></li>
-        <li><a href="/frontend-development-education/html-css/exercises/7.6-exercise.html">Övning 7.6</a></li>
-      </ul>
+    <hr id="line" class="maxWidth">
+    <div id="bio" class="maxWidth">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras laoreet laoreet laoreet. Nam lacinia facilisis neque et vestibulum. Vivamus id tincidunt sapien. Aenean sagittis dolor non convallis fermentum. Pellentesque eget egestas felis. Cras a urna nec magna porttitor accumsan a non tellus. Cras vestibulum dui sit amet augue aliquet, sed dictum dui laoreet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+    </div>
+    <div id="footer" class="maxWidth center">
+      <a href="mailto:markusmattsson90@gmail.com" class="contactLinks" rel="nofollow" target="_blank" title="Send me an email"><i class="fa fa-envelope" aria-hidden="true"></i> Email </a>
+      <a href="https://github.com/mattssonm/" class="contactLinks" rel="nofollow" target="_blank"  title="Check out my Github profile"><i class="fa fa-github" aria-hidden="true"></i> Github </a>
+      <a href="https://www.linkedin.com/in/markus-mattsson-8614196a" class="contactLinks" rel="nofollow" target="_blank"  title="See my LinkedIn profile"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn&nbsp</a>
     </div>
   </body>
 </html>
