@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>7.6 Exercise HTML</title>
+  <style>
+    p {
+      font-size:12px;
+      margin-bottom: 0;
+    }
+    .liItem {
+      width: 50px;
+      border: 1px dotted gray;
+      float: left;
+      padding:2px;
+      margin: 1px;
+    }
+    .landAlign {
+      text-align: right;
+    }
+    .nameColumn {
+      width: 80px;
+    }
+    .countryColumn {
+      width: 65px;
+    }
+    .center {
+      text-align: center;
+    }
+    .theadItem {
+      border: 1px dashed darkred;
+      font-weight: bold;
+      background-color: #F7DD7A;
+    }
+    #captionWrapper {
+      display: inline-block;
+    }
+    #tableWrapper {
+      font-size:12px;
+      border: 1px solid gray;
+      padding: 1px;
+      background-color: #E7F9CD;
+      display: inline-block;
+    }
+    #gold {
+      background-color: gold;
+    }
+    #silver {
+      background-color: silver;
+    }
+    #bronze {
+      background-color: #B68B00;
+    }
+  </style>
+</head>
+<body>
+  <h4>Övning 2</h4>
+  <div id="captionWrapper">
+  <p class="center">Kula, damer, OS 2016</p>
+    <div id="tableWrapper">
+      <div class="center">
+        <div class="nameColumn theadItem liItem">Idrottare</div>
+        <div class="theadItem liItem">Resultat</div>
+        <div class="theadItem liItem">Placering</div>
+        <div class="countryColumn theadItem liItem">Land</div>
+      </div>
+      <div>
+        <div class="nameColumn liItem">Michelle Carter</div>
+        <div class="liItem">20,63m</div>
+        <div id="gold" class="center liItem">1</div>
+        <div class="countryColumn landAlign liItem">USA</div>
+      </div>
+      <div>
+        <div class="nameColumn liItem">Valerie Adams</div>
+        <div class="liItem">20,42m</div>
+        <div id="silver" class="center liItem">2</div>
+        <div class="countryColumn landAlign liItem">Nya Zeeland</div>
+      </div>
+      <div>
+        <div class="nameColumn liItem">Anita Mårton</div>
+        <div class="liItem">19,87m</div>
+        <div id="bronze" class="center liItem">3</div>
+        <div class="countryColumn landAlign liItem">Ungern</div>
+      </div>
+      <div>
+        <div class="nameColumn liItem">Gong Lijiao</div>
+        <div class="liItem">19,39m</div>
+        <div class="center liItem">4</div>
+        <div class="countryColumn landAlign liItem">Kina</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
