@@ -30,3 +30,63 @@ presentation - vem är du
 länk till LinkedIn-kontot
 berätta om din utbildning
 berätta om det häftigaste projektet du har gjort hittills, med länk till GitHub-repot
+
+8 Installera följande webbläsare: Edge, Firefox, Chrome och Safari. Öppna dina GitHub pages i varje webbläsare och se om de ser likadana ut.
+
+9 Skriv HTML och CSS som testar följande uttryck. Din HTML-kod behöver alltså innehålla åtminstone taggarna p, div, span, ul, li och klasserna kategori, diagram och hello. När du är klar, jämför med en granne. Har ni löst uppgiften på samma sätt?
+1 p span					6 p > span
+2 .kategori .diagram			7 .diagram span
+3 p, div:hover				8 p.kategori
+4 li + li					9 li:last-child					
+5 [class*="sub"]				10 ul > li:nth-child(3).hello
+
+10 Skapa en HTML-sida med en stor svart rektangel som är horisontellt centrerad och täcker ca 70% av skärmens bredd. Använd ett div-element och CSS för att placera det rätt. Lägg upp sidan på GitHub.
+Skapa en vit rektangel som är inuti den svarta, men som följer med när man scrollar nedåt på sidan.
+Skapa en grön rektangel som ligger delvis över den svarta och den vita. Använd relativ positionering.
+
+11 Öva mer på CSS och "box model" genom att placera ut div-element och använda alla css-attribut som vi har tagit upp.
+
+12 Gå till http://www.csszengarden.com/ och ladda ner exempelfilerna. Skapa en egen CSS-fil som gör om sidan som du vill. OBS: ändra inte i HTML-filen!
+Den här uppgiften kan man lägga mycket tid på. Tanken är att du ska börja med den nu och återvända till uppgiften allteftersom vi går igenom nya saker i kursen.
+
+13 Gör en lista enligt exemplet nedan. Ändra den yttre listan till inline, så att elementen kommer efter varandra på en rad. Ta bort numreringen på båda listorna. Den inre listan ska ligga precis under "Redigera".
+När man hovrar med musen över "Redigera" ska elementet få kantlinjer.
+Extra utmaning: gör så att den inre listan bara visas när man hovrar med musen över "Redigera".
+Arkiv
+Redigera
+Ångra
+Gör om
+Klipp ut
+Kopiera
+Klistra in
+Visa
+Infoga
+
+14 Skapa ett schackbräde (8x8 rutor som alternerar svart/vitt) med bredd och höjd 200px, inklusive kantlinjer. Använd en tabell. Tips: använd border-collapse. <table style="border-collapse: collapse;">
+
+15 Gör ett element med kantlinjer och rundade hörn. Gör ett till element, som bara får rundade hörn när man hovrar över det. Tips: :hover, border-radius: ?px;
+
+16 Hitta alla fel i följande HTML-kodexempel. (Minst 12 fel)
+1.	<body>
+2.	<style> ul { border: black solid 1px; } </style>
+3.	<ul>
+4.		<li>first item</li>
+5.		<li><span class="strongly>second item</li>
+6.	</ol>
+7.	<div id="popup">Message that should be fixed in a corner<div/>
+8.	<div id="layout">
+9.		<main/>
+10.			<section> <h1>The best images</h1>
+11.				<p> Here's my favourite image:
+12.					<img>http('server.com/image.gif')</img>
+13.				</p> <!-- to do: add some more images
+14.			</section>
+15.		</main>
+16.		<aside></aside>
+17.	</div>
+18.	<span>In conclusion: <p>To do</p> </span>
+19.	</html>
+
+17 Skapa två img-element för samma bild. Den första bilden ska vara en fix bredd som du bestämmer. Den andra bilden ska vara hälften så bred som webbsidan och ändra storlek när man ändrar webbläsarens bredd.
+
+18 Gör en bild som fyller hela webbläsarens bredd men har en fast höjd.
