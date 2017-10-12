@@ -1,3 +1,4 @@
+/* Element Styles ---------------------- */
 body {
   font: 1em/1.25 Helvetica, Verdana, "Trebuchet MS";
 }
@@ -8,23 +9,30 @@ a {
 a:hover {
   text-decoration: underline;
 }
-p, a  {
-  font-size: 1.125rem;
+p  {
+  font-size: 1.125em;
 }
+
+/* Class Styles ---------------------- */
 .center {
   text-align: center;
  }  
-.maxWidth {
-  max-width: 500px;
-}
+
 .contactLinks {
-  margin: 30px;
+  margin: 1.5em;
 }
 .courseDiv {
   background-color: white;
   margin-left: 30%; 
   margin-right: 30%;
 }
+
+/* Id Styles ---------------------- */
+#line,
+#bio,
+#header {
+    max-width: 550px;
+  }
 #header {
   margin: auto;
   margin-top: 5em;
@@ -36,14 +44,17 @@ p, a  {
   padding: 0;
 }
 #portfolioPic {
+  display: block;
   width: 9em;
   border-radius: 100%;
   float: left;
+  height: auto;
 }
 #name {
   margin-top: 1em;
   margin-bottom: 0;
   padding: 0;
+  font-size: 2em;
 }
 #title {
   margin-top: 0;
@@ -53,7 +64,7 @@ p, a  {
   font-size: 1.5em;
 }
 #line {
-  margin: 30px auto 30px auto;
+  margin: 30px auto;
 }
 #bio {
   margin: 0 auto;
@@ -63,6 +74,37 @@ p, a  {
 }
 #exerciseList {
   list-style-type: none;
-  position:relative;
+  position: relative;
   left: -15px;
+}
+
+/* Media Queries ---------------------- */
+@media (max-width: 550px) {
+  #line,
+  #bio,
+  #header {
+    max-width: 100%;
+  }
+}
+@media (max-width: 490px) {
+  #header {
+    padding: 0 15px;  
+  }
+  #nameAndTitle, 
+  #portfolioPic {
+    float: none;
+    margin: auto;
+  }
+  #nameAndTitle {
+    margin-right: none;
+    text-align: center;
+  }
+  #portfolioPic {
+  }
+  #line {
+    margin-top: 0;
+  }
+  .contactLinks {
+    margin: 10px;
+  }
 }
