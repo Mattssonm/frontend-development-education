@@ -4,173 +4,187 @@
 <head>
 <title>Lab 2b Geometri</title>
     <script>
-        function makeRectangle(xArg, yArg, wArg, hArg) { 
-            return {
-                leftx: xArg,
-                topy: yArg, 
-                width: wArg, 
-                height: hArg,
-                area: function() {
-                  return this.width * this.height;
-                },
-                circumference: function() {
-                  return this.width * 2 + this.height * 2;
-                },
-                moveRight: function(x) {
-                  this.leftx += x;
-                },
-                moveDown: function(y) {
-                  this.topy += y;
-                }
-            };
-        }
-        //isLeftOf true om den första rektangeln börjar till vänster om den andra. 
-        //Alltså om rektangel1.leftx < rektangel2.leftx
-        function isLeftOf (recA, recB) {
-          return recA.leftx < recB.leftx;
-        }
-        function isOverlapping (recA, recB) {
+      function makeRectangle(leftx, topy, width, height) { 
+        return {
+          leftx: leftx,
+          topy: topy, 
+          width: width, 
+          height: height,
+          area: function() {
+            return this.width * this.height;
+          },
+          circumference: function() {
+            return this.width * 2 + this.height * 2;
+          },
+          moveRight: function(x) {
+            this.leftx += x;
+          },
+          moveDown: function(y) {
+            this.topy += y;
+          }
+        };
+      }
+
+      function isLeftOf (recA, recB) {
+        return recA.leftx < recB.leftx;
+      }
+
+      function isOverlapping (recA, recB) {
         /*recA        recB
         0-----|     2-----|
         |     |     |     |
         |-----1     |-----3
-        Write code which implements following statements below. 
-        If any of these are true, they don't overlap: */
-        //If 0 is to the right of 3.
+        If any of the following statements are true, they don't overlap: */
+        //If 0 is to the right of 3
         if (recA.leftx>recB.leftx+recB.width)
-            return false;
-        //If 0 is below 3.
+          return false;
+        //If 0 is below 3
         else if (recA.topy>recB.topy+recB.height)
-            return false;
-        //If 1 is to the left of 2.
+          return false;
+        //If 1 is to the left of 2
         else if (recA.leftx+recA.width<recB.leftx)
-            return false;
-        //If 1 is above 2.
+          return false;
+        //If 1 is above 2
         else if (recA.topy+recA.height<recB.topy)
-            return false;
-        // If neither of these expressions evaluate to true, the rectangles overlap.
+          return false;
+        // If neither of these expressions evaluates to true, the rectangles overlap
         else 
-            return true;
-        }
-    </script>
-</head>
+          return true;
+      }
 
-<body>
-    <h1>Lab 2b Geometri</h1>
-    <h2>Instructions (swedish):</h2>
-    <p>Du ska skapa några funktioner och objekt som kan användas för geometri. Ett exempel på användningsområde är datorspelsgrafik eller ritprogram.
-
-    makeRectangle ska vara en funktion som returnerar ett objekt. Funktionen ska ta fyra parametrar: x-koordinat och y-koordinat för övre vänstra hörnet samt bredd och höjd. Objektet motsvarar en rektangel och ska ha egenskaperna leftx, topy, width, height. Det ska ha metoderna:
-    - area: returnerar rektangelns area
-    - circumference: returnerar rektangelns omkrets
-    - moveRight(x): flyttar rektangeln x steg åt höger, genom att ändra egenskapen leftx
-    - moveDown(y): flyttar rektangeln y steg nedåt, genom att ändra egenskapen topy (y-axeln på en datorskärm går nedåt)
-
-    isLeftOf ska vara en funktion som tar två parametrar, som ska vara rektangelobjekt. Funktionen ska returnera true om den första rektangeln börjar till vänster om den andra.
-
-    isOverlapping ska vara en funktion som tar två rektangelobjekt som parametrar och räknar ut om de överlappar. Dvs att någon del av den ena rektangeln ligger över en del av den andra.
-
-    distanceBetween(o1, o2) ska vara en funktion som tar två rektangelobjekt som parametrar och räknar ut avståndet mellan dem. Om de överlappar räknas avståndet som noll. Annars är avståndet det kortaste avståndet mellan rektanglarnas sidor.
-    Tips: skriv först funktionerna horizontalDistanceBetween och verticalDistanceBetween, så blir uppgiften lättare.
-
-    Allmänt tips: använd papper och penna, ett enkelt ritprogram eller en ledig whiteboard. Rita olika rektanglar och sätt siffror på dem. Då blir det enklare att tänka igenom vad funktionerna behöver göra för att lösa uppgiften.</p>
-    
-    <h2>How I was thinking:</h2>
-    <p>
-    Tried my own solution first, without googling, spent 8 hours on it, but didn't work. Googled and found this tip: How about asking yourself how the two rectangles cannot overlap each other? (http://articles.leetcode.com/determine-if-two-rectangles-overlap/). Guess I should have thought outside of the box,.. or rectangle in this case :). Came up with this:
-    
-    0-----| 
-    |     |
-    |-----1
-    0:bottom = [leftx, topy, leftx, topy+height]
-    0:right = [leftx, topy, leftx+width, topy]
-    1:left = [leftx+width, topy+height, leftx, topy+height]
-    1::top = [leftx+width, topy+height, leftx+width, topy]
-    
-    2-----|
-    |     |
-    |-----3
-    
-    The two rectangles does not overlap if its above/below each other, and left/right of each other.
-    They cannot overlap in following cases: 
-    If 0 is to the right 3. 
-    If 0 is below 3.
-    If 1 is to the left of 2.
-    If 1 is above 2.
-    However if any of these are false, they do overlap.
-    
-    Building the function distanceBetween:
-    The function will first check if the rectangles is overlapping, with the isOverlapping function and return 0 if true. 
-    If they do not overlap the function will run the two seperate functions horizontalDistanceBetween and verticalDistanceBetween.
-      
-    There are 8 possible positions for recB to be in comparison to recA.
-    
-     recA        recB
-    0-----|     2-----|
-    |     |     |     |
-    |-----1     |-----3
-    
+      /*If they are not overlapping, there are 8 possible positions for recB to be in, in comparison to recA
       1      2      3
           |-----|
-      4   |recA |   5
+      4   | recA|   5
           |-----|  
       6      7      8
-      
-    To make this definition clear, in order for recB to be in positon 1, when recA is centered, corner 0's x must be smaller than corner 3's x and corner 0's y must be smaller than corner 3's y. The rectangle sides do not align.
-      
-   These will first check which side to measure top/left or bottom/right. These functions will both return a value, which is the distance between the rectangles in that axis, or it will return 0 if there are no difference in that axis. These values can then be used to calculate the pythagoras in case the recB is in position 1, 3, 6 or 8.
-      
-    verticalDistanceBetween
-      if recA0 x is larger than recB3 x
-        recB is to the left of recA (recB is in position 1, 4 or 6)
-        return recA0x-recB3x
-      else if recA1 x is smaller than recB2 x
-        recB is to the right of recA (recB is in position 3, 5 or 9). 
-        recB2x-recA1x
-      else
-        recB is in position 2 or 7,
-        return 0. 
-      
-    horizontalDistanceBetween
-      if recA0 y is larger than recB3 y 
-        recB is above recA (recB is in position 1, 2 or 3)
-        return recA0y - recB3y
-      else if recA1 y is smaller than recB2 y
-        recB is below recA (recB is in positon 6, 7 or 8)
-        return recB2y - recA1y
-      else 
-        recB is in position 4 or 5
-        return 0
-    distanceBetween(recA, recB) {
-      let measuredVerticalDistance = verticalDistanceBetween(recA, recB)
-      let measuredHorizontalDistance = horizontalDistanceBetween(recA, recB)
-      if (measuredVerticalDistance === 0)
-        return measuredHorizontalDistance;
-      else if (measuredHorizontalDistance === 0)
-        return measuredVerticalDistance;
-      else 
-        return Math.sqrt(measuredVerticalDistance*measuredVerticalDistance+measuredHorizontalDistance*measuredHorizontalDistance);
-    }
-      
-      
-    <h2>Implementation:</h2>
-     recA        recB
-    0-----|     2-----|
-    |     |     |     |
-    |-----1     |-----3
-    
-    Write code which implements following statements below. 
-    
-    They cannot overlap in following cases: 
-    If 0 is to the right of 3. 
-    If 0 is below 3.
-    If 1 is to the left of 2.
-    If 1 is above 2.
-    If neither of these expressions evaluate to true, the rectangles overlap.
-    
-    
-    
-    
-    </p>
+      */
+      function horizontalDistanceBetween(recA, recB) {
+        //if recA0 x is larger than recB3 x
+        if (recA.leftx > recB.leftx+recB.width) {
+          //recB is to the left of recA (recB is in position 1, 4 or 6)
+          //return recA0x-recB3x
+          return recA.leftx-(recB.leftx+recB.width);
+        }
+        //else if recA1 x is smaller than recB2 x
+        else if (recA.leftx+recA.width<recB.leftx) {
+          //recB is to the right of recA (recB is in position 3, 5 or 9). 
+          //return recB2x-recA1x
+          return recB.leftx-(recA.leftx+recA.width);
+        }
+        else {
+          //recB is in position 2 or 7,
+          return 0; 
+        }
+      }
+
+      function verticalDistanceBetween(recA, recB) {
+        //if recA0 y is larger than recB3 y 
+        if (recA.topy > recB.topy + recB.height) {
+          //recB is above recA (recB is in position 1, 2 or 3)
+          //return recA0y- recB3y
+          return recA.topy - (recB.topy + recB.height);
+        }
+        //else if recA1 y is smaller than recB2 y
+        else if (recA.topy + recA.height < recB.topy) {
+          //recB is below recA (recB is in positon 6, 7 or 8)
+          //return recB2y - recA1y
+          return recB.topy - (recA.topy + recA.height);
+        }
+        else { 
+          //recB is in position 4 or 5
+          return 0;
+        }
+      }
+
+      function distanceBetween(recA, recB) {
+        //call both vertical- and horizontalDistanceBetween and store them into variables
+        let measuredVerticalDistance = verticalDistanceBetween(recA, recB);
+        let measuredHorizontalDistance = horizontalDistanceBetween(recA, recB);
+        //if the vertical distance is 0, return the horizontal distance
+        if (measuredVerticalDistance === 0)
+          return measuredHorizontalDistance;
+        //if the horizontal distance is 0, the vertical distance is returned
+        else if (measuredHorizontalDistance === 0)
+          return measuredVerticalDistance;
+        //else recB is in positon 1, 3, 6 or 8, which means the distance must be calculated using pythagoras
+        else 
+          return Math.sqrt(measuredVerticalDistance*measuredVerticalDistance+measuredHorizontalDistance*measuredHorizontalDistance);
+      }
+    </script>
+</head>
+<body>
+  <h1>Lab 2b Geometri</h1>
+  <h2>To test this code:</h2>
+  <p>Read the script tags and try any functions you like in the console with developer tools. You should make two rectangles with the makeRectangle function, and assign them to two variables. Then try the isOverlapping or distanceBetween functions with the rectangles as arguments.</p>
+  <h2>Instructions (swedish):</h2>
+  <pre>Du ska skapa några funktioner och objekt som kan användas för geometri. Ett exempel på användningsområde är datorspelsgrafik eller ritprogram.
+
+  makeRectangle ska vara en funktion som returnerar ett objekt. Funktionen ska ta fyra parametrar: x-koordinat och y-koordinat för övre vänstra hörnet samt bredd och höjd. Objektet motsvarar en rektangel och ska ha egenskaperna leftx, topy, width, height. Det ska ha metoderna:
+  - area: returnerar rektangelns area
+  - circumference: returnerar rektangelns omkrets
+  - moveRight(x): flyttar rektangeln x steg åt höger, genom att ändra egenskapen leftx
+  - moveDown(y): flyttar rektangeln y steg nedåt, genom att ändra egenskapen topy (y-axeln på en datorskärm går nedåt)
+
+  isLeftOf ska vara en funktion som tar två parametrar, som ska vara rektangelobjekt. Funktionen ska returnera true om den första rektangeln börjar till vänster om den andra.
+
+  isOverlapping ska vara en funktion som tar två rektangelobjekt som parametrar och räknar ut om de överlappar. Dvs att någon del av den ena rektangeln ligger över en del av den andra.
+
+  distanceBetween(o1, o2) ska vara en funktion som tar två rektangelobjekt som parametrar och räknar ut avståndet mellan dem. Om de överlappar räknas avståndet som noll. Annars är avståndet det kortaste avståndet mellan rektanglarnas sidor.
+  Tips: skriv först funktionerna horizontalDistanceBetween och verticalDistanceBetween, så blir uppgiften lättare.
+
+  Allmänt tips: använd papper och penna, ett enkelt ritprogram eller en ledig whiteboard. Rita olika rektanglar och sätt siffror på dem. Då blir det enklare att tänka igenom vad funktionerna behöver göra för att lösa uppgiften.</pre>
+
+  <h2>How I was thinking:</h2>
+  <pre>
+  Tried my own solution first, without googling, spent 8 hours on it, but didn't work. Googled and found this tip: 
+  How about asking yourself how the two rectangles cannot overlap each other? 
+  (http://articles.leetcode.com/determine-if-two-rectangles-overlap/). 
+  Guess I should have thought outside of the box,.. or rectangle in this case :). Came up with this:
+
+  0-----| 
+  |     |
+  |-----1
+  0:bottom = [leftx, topy, leftx, topy+height]
+  0:right = [leftx, topy, leftx+width, topy]
+  1:left = [leftx+width, topy+height, leftx, topy+height]
+  1::top = [leftx+width, topy+height, leftx+width, topy]
+
+  2-----|
+  |     |
+  |-----3
+
+  The two rectangles does not overlap if its above/below each other, and left/right of each other.
+  They cannot overlap in following cases: 
+  If 0 is to the right 3. 
+  If 0 is below 3.
+  If 1 is to the left of 2.
+  If 1 is above 2.
+  However if any of these are false, they do overlap.
+
+  Building the function distanceBetween:
+  The function will first check if the rectangles is overlapping, with the isOverlapping function and return 0 if true. 
+  If they do not overlap the function will run the two seperate functions horizontalDistanceBetween and verticalDistanceBetween.
+
+  There are 8 possible positions for recB to be in comparison to recA.
+
+   recA        recB
+  0-----|     2-----|
+  |     |     |     |
+  |-----1     |-----3
+
+    1      2      3
+        |-----|
+    4   |recA |   5
+        |-----|  
+    6      7      8
+
+  To make this definition clear, in order for recB to be in positon 1, when recA is centered, corner 0's x must 
+  be smaller than corner 3's x and corner 0's y must be smaller than corner 3's y. The rectangle sides do not align.
+
+  These functions will both return a value, which is the distance between the rectangles in that axis, 
+  or it will return 0 if there are no difference in that axis. 
+  These values can then be used to calculate the pythagoras in case the recB is in position 1, 3, 6 or 8.
+  </pre>
 </body>
 </html>
