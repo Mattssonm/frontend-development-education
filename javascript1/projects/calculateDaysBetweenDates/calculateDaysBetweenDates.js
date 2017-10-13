@@ -131,6 +131,6 @@ window.onload = function() {
     }
     return calculatedTotalDays;
    }
-   daysBetween(prompt("Input first date xxxx-xx-xx"), prompt("Input second date in a string xxxx-xx-xx"));
+   daysBetween(prompt("Input first date xxxx-xx-xx"), prompt("Input second date xxxx-xx-xx"));
 
 }
