@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 2A Contacts</title>
+  <script>
+  function capitalizedStr (str) {
+    //make the first letter uppercase, then add the rest of the string.
+    return str.charAt(0).toUpperCase() + str.substring(1, str.length);
+  }
+
+  var Contacts = {
+    list: [],
+    addContact: function(nameToAdd, emailToAdd, phoneToAdd) {
+      //push the object onto the list property, make sure the name starts with a capital letter.
+      Contacts.list.push({name: capitalizedStr(nameToAdd), email: emailToAdd, phone: phoneToAdd});
+    },
+    find: function(name) {
+      let listToReturn = [];
+      for (let contact of Contacts.list) { 
+        //if contact.name includes the input string, push to listToReturn
+        if (contact.name.includes(capitalizedStr(name))) {  //try to search with a capitalized word.
+          listToReturn.push(contact);
+        }
+        //else try the search without it, in case the user wants to search for another part of the name.
+        else if (contact.name.includes(name)) {
+          listToReturn.push(contact);
+        }
+      }
+      return listToReturn;
+    }
+  };
+  </script>
+</head>  
+<body>
+  <h1>Lab 2A Contacts</h1>
+  <h2>To test this code:</h2>
+  <p>Inspect the source code and read the code in script tags. Try any function you want to test in the developer tools.</p>
+  <h2>Instructions (swedish):</h2>
+  <pre>Du ska skriva funktioner och objekt som kan användas i en kontaktbok.
+
+Skapa en variabel med namn Contacts. Den ska vara ett objekt med flera egenskaper och metoder.
+
+Contacts ska ha egenskaperna:
+- list: en lista med alla kontakter, som ska vara tom från början
+
+- addContact: metod som tar tre parametrar som motsvarar namn, epost och telefonnummer. Metoden ska lägga till ett nytt person-objekt sist i list. Alla person-objekt ska ha egenskaperna name, email och phone.
+
+- find: metod som tar en parameter name. Metoden ska returnera en ny lista med alla person-objekt vars namn innehåller name. Man ska t.ex. kunna skriva Contacts.find('Da') och få en lista som innehåller kontakter med namnen David, Daniel osv.
+
+Tips: använd strängfunktionerna indexOf eller includes för att ta reda på om en sträng förekommer i en annan. Exempel:
+'phantasia'.includes('ant') === true
+  </pre>
+</body>
+</html>
