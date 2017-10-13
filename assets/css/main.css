@@ -25,6 +25,22 @@ p  {
   background-color: white;
   margin-left: 30%; 
   margin-right: 30%;
+  overflow: hidden;
+}
+.exerciseList {
+  list-style-type: none;
+  position: relative;
+  left: -15px;
+  margin-bottom: 10px;
+}
+.htmlCss {
+  float: left;
+}
+.javascript1 {
+  float: right;
+}
+.goBack {
+  color: black;
 }
 
 /* Id Styles ---------------------- */
@@ -72,11 +88,6 @@ p  {
 #footer {
   margin: 40px auto;
 }
-#exerciseList {
-  list-style-type: none;
-  position: relative;
-  left: -15px;
-}
 
 /* Media Queries ---------------------- */
 @media (max-width: 550px) {
@@ -106,5 +117,12 @@ p  {
   }
   .contactLinks {
     margin: 10px;
+  }
+}
+@media (max-width: 1050px) {
+  .htmlCss,
+  .javascript1 {
+    float: none;
+    margin: auto;
   }
 }
