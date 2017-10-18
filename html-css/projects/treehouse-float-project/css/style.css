@@ -36,6 +36,8 @@ img {
 	max-width: 100%;
 }
 
+
+
 /* ================================= 
   Base Layout Styles
 ==================================== */
@@ -44,6 +46,7 @@ img {
 
 .name {
 	font-size: 1.25em;
+  text-align: center;
 }
 
 .name a,
@@ -55,6 +58,11 @@ img {
 	font-size: .95em;
 	color: #3acec2;
 	text-transform: uppercase;
+  display: block;
+}
+.main-nav li {
+  text-align: center;
+  margin: 1em;
 }
 
 .main-nav a:hover {
@@ -66,12 +74,26 @@ img {
 .banner {
 	color: #fff;
 	background: #3acec2;
+  text-align: center;
+  padding: 3em 0;
+  margin-bottom: 3em;
+}
+
+.headline {
+  margin-bottom: 0;
 }
 
 .main-footer {
 	background: #d9e4ea;
 	padding: 2em 0;
 	margin-top: 30px;
+  text-align: center;
+}
+
+/* ---- Columns ---- */
+
+.col {
+  padding: 0 1em;
 }
 
 /* ---- Page Elements ---- */
@@ -85,15 +107,83 @@ img {
 ==================================== */
 
 @media (min-width: 769px) {
+  
+  span {
+    font-size: 1.25em;
+  }
+  
+  /* ---- Navigation ---- */
+  
+  .name,
+  .main-nav li{
+    float: left;
+  }
+  
+  .main-nav {
+    float: right;  
+  }
 
-
-
-	/* ---- Float clearfix ---- */
+  .main-header {
+    padding: 0 50px;
+  }
+  
+  /* ---- Columns ---- */
+  
+  .secondary, 
+  .primary {
+    float: left;
+  }
+  
+  .secondary{
+    width: 40%;
+  }
+  
+  .primary {
+    width: 60%;
+  }
+  
+  .feat-img {
+    margin-bottom: 1em;
+  }
+  
+  .wrapper {
+    max-width: 90%;
+    margin: auto;
+  }
+  
+  /* ---- Float clearfix ---- */
 
 	.clearfix::after {
 		content: " ";
 		display: table;
 		clear: both;
 	}
+  
+@media (min-width: 1000px) {
+  
+  /* ---- Columns ---- */
+  
+  .secondary{
+    width: 30%;
+  }
+  
+  .primary {
+    width: 40%;
+  }
+  
+  .tertiary {
+    float: left;
+    width: 30%;
+  }
+  
+  .wrapper {
+    width: 80%;
+    max-width: 1150px;
+  }
 
 }
+  
+  
+  
+  
+  
