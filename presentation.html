@@ -36,7 +36,7 @@
       <div>
         <a href="http://www.ecutbildning.se/utbildningar/frontend-utvecklare"><img src="assets/ec-logo-full.svg" alt="EC Utbildning"></a>
         <h4>Courses:</h4>
-        <ul>
+        <ul id="courseList">
           <li>Examensarbete, 40 YH-poäng</li>
           <li>Grafikprogram, 10 YH-poäng</li>
           <li>HTML och CSS, 30 YH-poäng</li>
@@ -53,59 +53,65 @@
       </div>
       <p>Vill du gå en utbildning där du snabbt får goda färdigheter i att utveckla effektiva och responsiva webbsidor med HTML och CSS? Med denna YH-utbildning kommer du snabbt i kontakt med arbetslivet och lär dig det senaste inom frontend. Då kraven på kunskap inom JavaScript blir allt större fokuserar utbildningen på strukturerad programutveckling. Det räcker i dagsläget inte bara med att kunna CSS och jQuery för att lyckas som frontend utvecklare. God förståelse för design och användarvänlighet är också värdefullt, och gedigna färdigheter inom programmering blir allt viktigare i takt med att webbläsare börjar användas som en seriös programmeringsplattform.</p>
       <p>Internet och digitala vägar för kommunikation blir allt mer betydande för företagen. Istället för att företagen själva bestämmer hur de vill utveckla sina webbkanaler så är det kundernas behov och nyttjande som driver fram utvecklingen. Frontend-utvecklaren jobbar just inom denna kunddrivna utveckling då hemsidor och webbläsare blir allt mer avancerade, vilket ställer krav på specifik kompetens.</p>
-      <p>En fjärdedel av utbildningens två år genomförs ute på företag vilket kombineras med teoretiska och projektbaserade studier på skolan. Som studerande får du samtidigt ett nätverk att ta avstamp ifrån efter avslutad utbildning. Du tar med dig ett brett spektrum av kunskaper och erfarenheter med allt från interaktionsdesign till objektorienterad programutveckling. Du får helt enkelt en mycket efterfrågad kompetensprofil och kan börja jobba direkt efter avslutad examen.</p>
-    </div>
+    </div> <!-- .wrapper -->
   </section>
   <section id="about">
-    <h2>About Me</h2>
-    <img src="assets/portfoliopic.jpg" alt="Markus Mattsson">
-    <p>After taking the traditional route of long term university study (I studied bachelors in Psychology and Human Recourses), I worked for a couple of years only to discover my problems with spending every day in an office. Now I dream of having a job where I can work at least part time remotely. I want to be able to leave cold, dark Sweden for a month or two each year during winter. After trying a lot of different things, I have now decided to give programming another shot.</p>
-    <a href="mailto:markusmattsson90@gmail.com" class="contactLinks" rel="nofollow" target="_blank" title="Send me an email"><i class="fa fa-envelope" aria-hidden="true"></i> Email </a>
-    <a href="https://github.com/mattssonm/" class="contactLinks" rel="nofollow" target="_blank"  title="Check out my Github profile"><i class="fa fa-github" aria-hidden="true"></i> Github </a>
-    <a href="https://www.linkedin.com/in/markus-mattsson-8614196a" class="contactLinks" rel="nofollow" target="_blank"  title="See my LinkedIn profile"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn&nbsp;</a>
+    <div class="wrapper">
+      <h2>About Me</h2>
+      <img src="assets/portfoliopic.jpg" alt="Markus Mattsson">
+      <p>After taking the traditional route of long term university study (I studied bachelors in Psychology and Human Recourses), I worked for a couple of years only to discover my problems with spending every day in an office. Now I dream of having a job where I can work at least part time remotely. I want to be able to leave cold, dark Sweden for a month or two each year during winter. After trying a lot of different things, I have now decided to give programming another shot, and I'm absolutely loving it!.</p>
+      <a href="mailto:markusmattsson90@gmail.com" class="contactLinks" rel="nofollow" target="_blank" title="Send me an email"><i class="fa fa-envelope" aria-hidden="true"></i> Email </a>
+      <a href="https://github.com/mattssonm/" class="contactLinks" rel="nofollow" target="_blank"  title="Check out my Github profile"><i class="fa fa-github" aria-hidden="true"></i> Github </a>
+      <a href="https://www.linkedin.com/in/markus-mattsson-8614196a" class="contactLinks" rel="nofollow" target="_blank"  title="See my LinkedIn profile"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn&nbsp;</a>
+    </div> <!-- .wrapper -->
   </section>
   <section id="code">
-    <h2>Code</h2>
-    <p>I gathered everything I've done in <a href="https://github.com/Mattssonm/frontend-development-education">this reposistory</a></p>
-    <div class="htmlCss">
-      <h3 class="center">HTML & CSS</h3>
-      <ul class="exerciseList">
-        <li><a href="../html-css/exercises/7.1-exercise.html" target="_blank">Övning 7.1</a></li>
-        <li><a href="../html-css/exercises/7.2-exercise.html" target="_blank">Övning 7.2</a></li>
-        <li><a href="../html-css/exercises/7.3-exercise.html" target="_blank">Övning 7.3</a></li>
-        <li><a href="../html-css/exercises/7.4-exercise.html" target="_blank">Övning 7.4</a></li>
-        <li><a href="../html-css/exercises/7.5-exercise.html" target="_blank">Övning 7.5</a></li>
-        <li><a href="../html-css/exercises/7.6-exercise.html" target="_blank">Övning 7.6</a></li>
-        <li><a href="../html-css/exercises/7.9-exercise.html" target="_blank">Övning 7.9</a></li>
-        <li><a href="../html-css/exercises/7.11-exercise.html" target="_blank">Övning 7.11</a></li>
-      </ul>
-    </div>
-    <div class="javascript1">
-      <h3 class="center">Javscript 1</h3>
-      <ul class="exerciseList">
-        <li>Projects:</li>
-        <li><a href="../javascript1/projects/calculateDaysBetweenDates/calculateDaysBetweenDates.html" target="_blank">Calculate Days Between Dates</a></li>
-      </ul>
-      <ul class="exerciseList">
-        <li>Lab Assignments:</li>
-        <li><a href="../javascript1/lab-assignments/lab-1.html" target="_blank">Lab 1</a></li>
-        <li><a href="../javascript1/lab-assignments/lab-2a-contacts.html" target="_blank">Lab 2a Contacts</a></li>
-        <li><a href="../javascript1/lab-assignments/Lab-2b-Geometri.html" target="_blank">Lab 2b Geometry</a></li>
-      </ul>
-      <ul class="exerciseList">
-        <li>Exercises:</li>
-        <li><a href="../javascript1/exercises/3-functions.html" target="_blank">3 Functions</a></li>
-        <li><a href="../javascript1/exercises/4-listor.html" target="_blank">4 Arrays</a></li>
-        <li><a href="../javascript1/exercises/5-object.html" target="_blank">5 Object</a></li>
-        <li><a href="../javascript1/exercises/6-higher-order-functions.html" target="_blank">6 Higher Order Functions</a></li>
-      </ul>
-    </div>
+    <div class="wrapper">
+      <h2>The Code</h2>
+      <p>I gathered everything I've done in <a href="https://github.com/Mattssonm/frontend-development-education">this reposistory</a></p>
+      <div class="htmlCss">
+        <h3 class="center">HTML & CSS</h3>
+        <ul class="exerciseList">
+          <li><a href="../html-css/exercises/7.1-exercise.html" target="_blank">Övning 7.1</a></li>
+          <li><a href="../html-css/exercises/7.2-exercise.html" target="_blank">Övning 7.2</a></li>
+          <li><a href="../html-css/exercises/7.3-exercise.html" target="_blank">Övning 7.3</a></li>
+          <li><a href="../html-css/exercises/7.4-exercise.html" target="_blank">Övning 7.4</a></li>
+          <li><a href="../html-css/exercises/7.5-exercise.html" target="_blank">Övning 7.5</a></li>
+          <li><a href="../html-css/exercises/7.6-exercise.html" target="_blank">Övning 7.6</a></li>
+          <li><a href="../html-css/exercises/7.9-exercise.html" target="_blank">Övning 7.9</a></li>
+          <li><a href="../html-css/exercises/7.11-exercise.html" target="_blank">Övning 7.11</a></li>
+        </ul>
+      </div> <!-- htmlCss -->
+      <div class="javascript1">
+        <h3 class="center">Javscript 1</h3>
+        <ul class="exerciseList">
+          <li>Projects:</li>
+          <li><a href="../javascript1/projects/calculateDaysBetweenDates/calculateDaysBetweenDates.html" target="_blank">Calculate Days Between Dates</a></li>
+        </ul>
+        <ul class="exerciseList">
+          <li>Lab Assignments:</li>
+          <li><a href="../javascript1/lab-assignments/lab-1.html" target="_blank">Lab 1</a></li>
+          <li><a href="../javascript1/lab-assignments/lab-2a-contacts.html" target="_blank">Lab 2a Contacts</a></li>
+          <li><a href="../javascript1/lab-assignments/Lab-2b-Geometri.html" target="_blank">Lab 2b Geometry</a></li>
+        </ul>
+        <ul class="exerciseList">
+          <li>Exercises:</li>
+          <li><a href="../javascript1/exercises/3-functions.html" target="_blank">3 Functions</a></li>
+          <li><a href="../javascript1/exercises/4-listor.html" target="_blank">4 Arrays</a></li>
+          <li><a href="../javascript1/exercises/5-object.html" target="_blank">5 Object</a></li>
+          <li><a href="../javascript1/exercises/6-higher-order-functions.html" target="_blank">6 Higher Order Functions</a></li>
+        </ul>
+      </div> <!-- .javascript -->
+    </div> <!-- .wrapper -->
   </section>
   <footer>
+    <ul>
+      <li><a href="mailto:markusmattsson90@gmail.com" class="contactLinks" rel="nofollow" target="_blank" title="Send me an email"><i class="fa fa-envelope" aria-hidden="true"></i> Email </a></li>
+      <li><a href="https://github.com/mattssonm/" class="contactLinks" rel="nofollow" target="_blank"  title="Check out my Github profile"><i class="fa fa-github" aria-hidden="true"></i> Github </a></li>
+      <li><a href="https://www.linkedin.com/in/markus-mattsson-8614196a" class="contactLinks" rel="nofollow" target="_blank"  title="See my LinkedIn profile"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn&nbsp;</a></li>
+    </ul>
+    <hr class ="footerLine">
     <a href="#">Back to top</a>
-    <a href="mailto:markusmattsson90@gmail.com" class="contactLinks" rel="nofollow" target="_blank" title="Send me an email"><i class="fa fa-envelope" aria-hidden="true"></i> Email </a>
-    <a href="https://github.com/mattssonm/" class="contactLinks" rel="nofollow" target="_blank"  title="Check out my Github profile"><i class="fa fa-github" aria-hidden="true"></i> Github </a>
-    <a href="https://www.linkedin.com/in/markus-mattsson-8614196a" class="contactLinks" rel="nofollow" target="_blank"  title="See my LinkedIn profile"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn&nbsp;</a>
   </footer>
 </body>
 </html>

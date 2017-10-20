@@ -4,12 +4,40 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+/*---------------- Base Style --------------*/
+
+a {
+  text-decoration: none;
+  color: black;
+  padding: 0 1em;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 section > div {
   max-width: 80%;
   margin: auto;
 }
 
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline;
+}
+
+/*---------------- Base Layout --------------*/
+
+.wrapper {
+  width: 80%;
+}
+
 /*---------------- Header --------------*/
+
 header {
   height: 600px;
   background-image: linear-gradient(to bottom, transparent, white),
@@ -20,6 +48,7 @@ header {
   background-size: cover;
   padding-top: 225px;
 }
+
 h1 {
   text-align: center;
   font-size: 4.375rem; /* 70px/16px  */
@@ -35,10 +64,12 @@ h2 {
 }
 
 /*---------------- Summary --------------*/
+
 #summary > div {
   overflow: hidden;
   height: 250px;
 }
+
 .sumDiv {
   max-width: 30%;
   height: 200px;
@@ -47,15 +78,19 @@ h2 {
   border-radius: 10px;
   box-shadow: 20px 20px 5px rgba(0, 0, 0, .5);
 }
+
 .sumDiv:first-child {
   background-color: rgba(255, 102, 102, .8);
 }
+
 .sumDiv:nth-child(2) {
   background-color: rgba(102, 255, 102, .8);
 }
+
 .sumDiv:last-child {
   background-color: rgba(102, 194, 255, .8);
 }
+
 .sumDiv:first-child,
 .sumDiv:nth-child(2) {
   margin-right: 4%;
@@ -64,19 +99,72 @@ h2 {
 /*---------------- Education --------------*/
 
 #education {
-  background-image: linear-gradient(to bottom, rgba(255, 77, 77, .8), transparent),
-                    linear-gradient(rgba(255,255,255, 1), rgba(255,255,255, 0.5), rgba(255,255,255, 1)),
+  height: 600px;
+  background-image: linear-gradient(to bottom, rgba(255, 77, 77, .6), transparent),
+                    linear-gradient(rgba(255,255,255, 0.5), rgba(255,255,255, 0.5), rgba(255,255,255, 1)),
                     url(https://images.unsplash.com/photo-1429794890858-d3016a2bb73c?dpr=1&auto=format&fit=crop&w=1657&h=&q=60&cs=tinysrgb&crop=);
   background-size: cover;
-  height: 600px;
 }
+
 #education h2 {
   text-align: center;
 }
+
 #education img {
   width: 300px;
 }
+
 #education > div div {
   float: left;
   padding-right: 20px;
+}
+
+#courseList li {
+  display: block;
+}
+
+/*---------------- About Me --------------*/
+
+#about {
+  height: 600px;
+  background-image: linear-gradient(to bottom, rgba(102, 255, 102, .4), transparent),
+                    linear-gradient(rgba(255,255,255, 0.2), rgba(255,255,255, 0.5), rgba(255,255,255, 1)),
+                    url(https://images.unsplash.com/photo-1495926086070-21865ce21e2a?w=1190);
+  background-size: cover;
+}
+
+#about img {
+  width: 200px;
+  float: left;
+  border-radius: 10px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
+  margin: 0 20px
+}
+
+/*---------------- The Code --------------*/
+
+#code {
+  height: 600px;
+  background-image: linear-gradient(to bottom, rgba(102, 194, 255, .4), transparent),
+                    linear-gradient(rgba(255,255,255, 0.2), rgba(255,255,255, 0.5), rgba(255,255,255, 1)),
+                    url(https://images.unsplash.com/photo-1505238680356-667803448bb6?w=1050);
+  background-size: cover;
+  background-position: center;
+ 
+}
+
+/*---------------- Footer --------------*/
+
+footer {
+  background-color: gray;
+  min-height: 10vh;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.footerLine {
+  width: 80%; 
+  height: 1px;
+  background-color: black;
+  border: none;
 }
