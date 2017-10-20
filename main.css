@@ -9,8 +9,9 @@ html {
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
   padding: 0 1em;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
 a:hover {
@@ -24,10 +25,38 @@ section > div {
 
 ul {
   list-style-type: none;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
 li {
   display: inline;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4.375rem; /* 70px/16px  */
+  font-weight: 300;
+  color: white;
+  text-shadow: 3px 5px 5px rgba(0, 0, 0, .4);
+  margin: 0;
+  padding: 
+}
+
+h2 {
+  text-align: center;
+  padding-top: 30px;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+h3, p {
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+p {
+  font-size: 1.125em; /* 18px/16px */
 }
 
 /*---------------- Base Layout --------------*/
@@ -47,20 +76,6 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 225px;
-}
-
-h1 {
-  text-align: center;
-  font-size: 4.375rem; /* 70px/16px  */
-  font-weight: 300;
-  color: white;
-  margin: 0;
-  padding: 
-}
-
-h2 {
-  text-align: center;
-  padding-top: 30px;
 }
 
 /*---------------- Summary --------------*/
@@ -164,7 +179,4 @@ footer {
 
 .footerLine {
   width: 80%; 
-  height: 1px;
-  background-color: black;
-  border: none;
 }
