@@ -1,5 +1,7 @@
 html {
   box-sizing: border-box;
+  font-size: 16px;
+  color: white;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -8,25 +10,16 @@ html {
 /*---------------- Base Style --------------*/
 
 a {
-  text-decoration: none;
+  padding: 0 1em 0 0;
   color: white;
-  padding: 0 1em;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
 a:hover {
-  text-decoration: underline;
-}
-
-section > div {
-  max-width: 80%;
-  margin: auto;
+  color: black;
 }
 
 ul {
   list-style-type: none;
-  color: white;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
 li {
@@ -37,21 +30,16 @@ h1 {
   text-align: center;
   font-size: 4.375rem; /* 70px/16px  */
   font-weight: 300;
-  color: white;
   text-shadow: 3px 5px 5px rgba(0, 0, 0, .4);
   margin: 0;
-  padding: 
 }
 
 h2 {
   text-align: center;
   padding-top: 30px;
-  color: white;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
-h3, p {
-  color: white;
+h2, h3, p, ul, a {
   text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
@@ -63,6 +51,32 @@ p {
 
 .wrapper {
   width: 80%;
+}
+
+section > div {
+  max-width: 80%;
+  margin: auto;
+}
+
+.content-section {
+  height: 600px;
+}
+
+.side-content {
+  float: left;
+  margin-right: 3%;
+  width: 32%;
+}
+
+.side-content img {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+.main-content {
+  float: right;
+  width: 65%;
 }
 
 /*---------------- Header --------------*/
@@ -89,21 +103,21 @@ header {
   max-width: 30%;
   height: 200px;
   float: left;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 10px;
   box-shadow: 20px 20px 5px rgba(0, 0, 0, .5);
 }
 
 .sumDiv:first-child {
-  background-color: rgba(255, 102, 102, .8);
+  background-color: rgba(225, 102, 102, .7);
 }
 
 .sumDiv:nth-child(2) {
-  background-color: rgba(102, 255, 102, .8);
+  background-color: rgba(102, 225, 102, .7);
 }
 
 .sumDiv:last-child {
-  background-color: rgba(102, 194, 255, .8);
+  background-color: rgba(102, 194, 225, .7);
 }
 
 .sumDiv:first-child,
@@ -111,27 +125,14 @@ header {
   margin-right: 4%;
 }
 
+
 /*---------------- Education --------------*/
 
 #education {
-  height: 600px;
   background-image: linear-gradient(to bottom, rgba(255, 77, 77, .6), transparent),
                     linear-gradient(rgba(255,255,255, 0.5), rgba(255,255,255, 0.5), rgba(255,255,255, 1)),
                     url(https://images.unsplash.com/photo-1429794890858-d3016a2bb73c?dpr=1&auto=format&fit=crop&w=1657&h=&q=60&cs=tinysrgb&crop=);
   background-size: cover;
-}
-
-#education h2 {
-  text-align: center;
-}
-
-#education img {
-  width: 300px;
-}
-
-#education > div div {
-  float: left;
-  padding-right: 20px;
 }
 
 #courseList li {
@@ -141,7 +142,6 @@ header {
 /*---------------- About Me --------------*/
 
 #about {
-  height: 600px;
   background-image: linear-gradient(to bottom, rgba(102, 255, 102, .4), transparent),
                     linear-gradient(rgba(255,255,255, 0.2), rgba(255,255,255, 0.5), rgba(255,255,255, 1)),
                     url(https://images.unsplash.com/photo-1495926086070-21865ce21e2a?w=1190);
@@ -149,17 +149,17 @@ header {
 }
 
 #about img {
-  width: 200px;
-  float: left;
   border-radius: 10px;
   box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
-  margin: 0 20px
+}
+
+#about ul {
+  text-align: center;
 }
 
 /*---------------- The Code --------------*/
 
 #code {
-  height: 600px;
   background-image: linear-gradient(to bottom, rgba(102, 194, 255, .4), transparent),
                     linear-gradient(rgba(255,255,255, 0.2), rgba(255,255,255, 0.5), rgba(255,255,255, 1)),
                     url(https://images.unsplash.com/photo-1505238680356-667803448bb6?w=1050);
