@@ -90,3 +90,32 @@ Infoga
 17 Skapa två img-element för samma bild. Den första bilden ska vara en fix bredd som du bestämmer. Den andra bilden ska vara hälften så bred som webbsidan och ändra storlek när man ändrar webbläsarens bredd.
 
 18 Gör en bild som fyller hela webbläsarens bredd men har en fast höjd.
+
+19 Ta reda på vilka filformat som stöds i audio- och video-elementen. Skapa sedan ett element som spelar upp en ljudfil och ett som spelar upp ett videoklipp. (Välj ett kort videoklipp så filen blir liten)
+
+20 Skriv CSS-selektorer som väljer ut… 
+alla tabellceller som är i andra raden i sin tabell
+alla list items som finns i ett nav-element
+alla element i en ordnad lista
+alla div-element som kommer efter ett h1-element
+alla bilder som finns i ett länk- eller i ett button-element
+
+21 Rangordna följande CSS-selektorer med den som har högst prioritet överst. Räkna ut specificiteten för varje selektor.
+p
+div div
+:hover
+div > :hover
+.one .two .three
+.one > #something li
+div.classy ul li
+*
+
+22 Skapa en meny med minst tre länkar. De ska ligga inuti en lista (ul eller ol) som i sin tur ska ligga inuti ett nav-element. Styla länkarna med CSS så att de ser ut som knappar och kommer på samma rad.
+
+23 Skapa en webbsida med ett formulär. Tänk dig att det är en del av en webbshop, där man fyller i betalningsinformation. Du ska använda minst ett av varje av formulärelementen input, label, select, textarea och button. Använd CSS för att styla formuläret.
+
+9 Avancerad CSS
+1 Skapa en webbsida där texten wrappar runt en bild som ligger antingen på höger eller vänster sida i en container (div). Använd float och clear. Den ska ligga på GitHub. Exempel:
+
+2 Skapa en webbsida med hjälp av flexbox, som är så lik den vänstra bilden i exemplet nedan som möjligt. Lägg till media queries som ändrar layouten till den högra bilden om webbläsarens tillgängliga bredd är mindre än 800px.
+
