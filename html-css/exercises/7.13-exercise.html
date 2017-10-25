@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>7.13-exercise.html</title>
+  <style>
+    
+    li {
+      padding: 2px;
+    }
+    
+    .innerList {
+      display: none;
+      position: absolute;
+      list-style-type: none;
+      left: 50px;
+      top: 30px;
+    }
+  
+    .dropdown:hover {
+      border: 1px solid black;
+    }
+    
+    .outerList,
+    .outerList > li,
+    .dropdown:hover + ul,
+    .innerList:hover {
+      display: inline;
+    }
+    
+  </style>
+</head>
+
+<body>
+  
+  <ul class="outerList">
+    <li class="inline">Arkiv</li>
+    <li class="inline dropdown">Redigera</li>
+      <ul class="innerList">
+        <li>Ångra</li>
+        <li>Gör om</li>
+        <li>Klipp ut</li>
+        <li>Kopiera</li>
+        <li>Klistra in</li>
+      </ul>
+    <li class="inline">Visa</li>
+    <li class="inline">Infoga</li>
+  </ul>
+  
+</body>
+</html>
