@@ -2,11 +2,35 @@
 <html>
 <head>
   <title>7.15-exercise.html</title>
-  <style>
-
+  <style>  
+    div {
+      width: 45%;
+      margin: 10% auto;
+      padding: 0;
+      text-align: center;
+      border: 1px solid black;
+    }
+    
+    .one {
+      border-radius: 100%;
+    }
+    
+    .two:hover {
+      border-radius: 100%;
+      transition: border-radius 2s;
+    }
+    
+    .two {
+      transition: border-radius 2s;
+    }
   </style>
 </head>
 <body>
-
+  <div class="one">
+   <h1>1</h1>
+  </div>
+  <div class="two">
+    <h1>2</h1>
+  </div>
 </body>
 </html>
