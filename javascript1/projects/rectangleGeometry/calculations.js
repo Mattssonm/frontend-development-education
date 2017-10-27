@@ -97,11 +97,11 @@ function distanceBetween(recA, recB) {
   let measuredHorizontalDistance = horizontalDistanceBetween(recA, recB);
   //if the vertical distance is 0, return the horizontal distance
   if (measuredVerticalDistance === 0)
-    return measuredHorizontalDistance;
+    return measuredHorizontalDistance + " px";
   //if the horizontal distance is 0, the vertical distance is returned
   else if (measuredHorizontalDistance === 0)
-    return measuredVerticalDistance;
+    return measuredVerticalDistance + " px";
   //else recB is in positon 1, 3, 6 or 8, which means the distance must be calculated using pythagoras
   else 
-    return Math.sqrt(measuredVerticalDistance*measuredVerticalDistance+measuredHorizontalDistance*measuredHorizontalDistance);
+    return Math.sqrt(measuredVerticalDistance*measuredVerticalDistance+measuredHorizontalDistance*measuredHorizontalDistance) + " px";
 }
