@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- 7 Skapa en sida med ett button-element och ett annat element. Båda ska ha id. När man klickar på knappen ska det andra elementet tas bort.
+Utöka exemplet så att ett nytt element med samma id och textinnehåll som det borttagna läggs till på sidan, om man klickar en gång till på knappen.
+-->
+<html>
+<head>
+  <title>10.7-exercise</title>
+  <style></style>
+  <script>
+    window.addEventListener("load", function() { 
+      const btn = document.getElementById("btn");
+      const hello = document.getElementById("hello");
+      let removed = false;
+      btn.addEventListener("click", function(){
+        if (removed == false) {
+          document.body.removeChild(hello);
+          removed = true;
+        }
+        else {
+          document.body.appendChild(hello);
+          removed = false;
+        };
+      });
+    });
+  </script>
+</head>
+<body>
+  <button id="btn">Click Me!</button>
+  <p id="hello">Hello World!</p>
+</body>
+</html>

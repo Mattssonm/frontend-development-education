@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>10.5-exercise</title>
+  <style>
+    section {
+      border: 1px solid lightgrey;
+    }
+    .red {
+      background-color: red;
+    }
+  </style>
+  <script>
+    window.addEventListener("load", function() {
+      document.getElementById("btn").addEventListener("click", function(event) {
+        console.log("hej");
+        let sections = document.getElementsByTagName("section");
+        for (let i = 0; i<sections.length; i++) {
+          sections[i].className = "red";
+        }
+      }); //btn click
+    });
+  </script>
+</head>
+<body>
+  <section>section 1</section>
+  <section>section 2</section>
+  <section>section 3</section>
+  <section>section 4</section>
+  <button id="btn">Click Me!</button>
+</body>
+</html>

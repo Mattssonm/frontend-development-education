@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>10.4-exercise</title>
+  <script>
+    window.addEventListener("load", function() {
+      let btn = document.getElementById("btn");
+      btn.addEventListener("click", function(event) {
+        if (event.target.className === "green") {
+          event.target.className = "red";
+        }
+        else {
+          event.target.className = "green";
+        }
+      }); //btn click
+    });
+  </script>
+  <style>
+    .green {
+      background-color: green;
+    }
+    .red {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn" class="green">Click me</button>
+</body>
+</html>

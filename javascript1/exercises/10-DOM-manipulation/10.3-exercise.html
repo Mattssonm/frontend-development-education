@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>10.3-exercise</title>
+  <style>
+    .awesomeClass {
+      border: 2px solid black;
+      margin: auto;
+      width: 300px;
+    }
+  </style>
+  <script>
+    window.addEventListener("load", function() {
+      let awesomeClass = document.getElementsByClassName("awesomeClass");
+      let btn = document.getElementById("awesomeBtn");
+      let clicked = false;
+      let originalContent = [];
+      for (let i = 0; i<awesomeClass.length; i++) {
+        originalContent[i] = awesomeClass[i].innerHTML
+        }
+      
+      btn.addEventListener("click", function() {
+        if (clicked == false) {
+          for (let i = 0; i<awesomeClass.length; i++) {
+          awesomeClass[i].innerHTML = "Hello there!";
+          }
+          clicked = true;
+        }
+        else {
+          for (let i = 0; i<awesomeClass.length; i++) {
+          awesomeClass[i].innerHTML = originalContent[i];
+          }
+          clicked = false;
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="awesomeClass">1</div>
+  <div class="awesomeClass">2</div>
+  <div class="awesomeClass">3</div>
+  <button id="awesomeBtn">Click Me!</button>
+</body>
+</html>

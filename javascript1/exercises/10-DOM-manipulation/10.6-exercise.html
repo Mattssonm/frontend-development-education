@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>10.6-exercise</title>
+  <script>
+    window.addEventListener("load", function() {
+      const list = document.getElementsByTagName("ul");
+      const divToPrintTo = document.getElementById("print")
+      const childNodes = list[0].childNodes;
+      console.log(list);
+      console.log(list[0].childNodes.length);
+      console.log(list[0].childNodes[1].innerHTML);
+      document.getElementById("btn").addEventListener("click", function(event) {
+        //Först ska du skriva ut hur många childNodes listan har.
+        console.log(divToPrintTo);
+        console.log(childNodes);
+        divToPrintTo.innerHTML += "childNodes length = " + childNodes.length + "<br>";
+        
+        //Skriv sedan ut vad varje child node har för värde på nodeName.
+        for (let i = 0; i < childNodes.length; i++) {
+          divToPrintTo.innerHTML += "childNode " + i + " = " + childNodes[i].nodeName + "<br>";
+        }
+        //Utöka funktionen så att den lägger till ett utropstecken sist på varje li-element.
+        childNodes[1].innerHTML += "!";
+        childNodes[3].innerHTML += "!";
+        childNodes[5].innerHTML += "!";
+      });
+    });
+  </script>
+</head>
+<body>
+  <ul>
+    <li>Röd</li>
+    <li>Grön</li>
+    <li>Blå</li>
+  </ul>
+    <button id="btn">Click Me!</button>
+  <div id="print">
+    <p>Things You Need To know: <br></p>
+    <p></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--8 Skapa en sida med ett button-element och två listor med flera element i den första. När man klickar på knappen ska det första li-elementet i den första listan flyttas till den andra listan. Tips: skapa en funktion som returnerar det första li-elementet i en html-lista.-->
+<html>
+<head>
+  <title>10.8-exercise</title>
+  <style></style>
+  <script>
+    window.addEventListener("load", function() { 
+      const btn = document.getElementById("btn");
+      let firstList = document.getElementById("firstList");
+      let secondList = document.getElementById("secondList");
+      
+      function returnFirstLi (list) {
+        let convertToArr = list.querySelectorAll("li");
+        return convertToArr[0];
+      };
+      
+      btn.addEventListener("click", function() {
+        //save first li
+        let liToMove = returnFirstLi(firstList);
+        //remove from first list
+        firstList.removeChild(firstList.querySelectorAll("li")[0]);
+        //append to second list
+        secondList.appendChild(liToMove);
+      });
+    });
+  </script>
+</head>
+<body>
+  <ul id="firstList">
+    <li>Röd</li>
+    <li>Grön</li>
+    <li>Blå</li>
+    <li>Orange</li>
+    <li>Gul</li>
+    <li>Lila</li>
+    <li>Rosa</li>
+  </ul>
+  <ol id="secondList">
+    <li>Hello</li>
+  </ol>
+  <button id="btn">Click Me!</button>
+</body>
+</html>

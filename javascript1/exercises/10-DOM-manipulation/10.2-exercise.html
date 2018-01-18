@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>10.2-exercise</title>
+  <script>
+    window.addEventListener("load", function() {
+      let bunnyCount = 2;
+      let btn = document.getElementById("AddBunnyBtn");
+      let list = document.getElementById("listOfBunnies");
+      btn.addEventListener("click", function() {
+        let node = document.createElement("LI");
+        let textNode = document.createTextNode("Bunny " + bunnyCount)
+        node.appendChild(textNode);
+        list.appendChild(node);
+        bunnyCount++;
+      });
+    });
+  </script>
+</head>
+<body>
+  <h3>List of bunnies</h3>
+  <ul id="listOfBunnies">
+    <li>Bunny 1</li>
+  </ul>
+  <button id="AddBunnyBtn">Add Bunny</button>
+</body>
+</html>
