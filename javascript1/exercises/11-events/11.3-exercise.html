@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--Instructions: 3 Gör en sida med två knappar. På den ena ska det stå "Start" och på den andra "Stopp". Stopp-knappen ska vara inaktiverad, använd element.disabled=true
+När man klickar på Start ska start-knappen inaktiveras och stopp-knappen aktiveras. När man klickar på Stopp ska det bli tvärtom. -->
+<html>
+<head>
+  <title>11.3-exercise</title>
+  <style></style>
+  <script>
+    window.addEventListener("load", function() { 
+      let stopBtn = document.getElementById("stopBtn")
+      let startBtn = document.getElementById("startBtn")
+      stopBtn.disabled=true;
+      
+      let disableBtn = function() {
+        this.disabled=true;
+        if (this == startBtn) {
+          stopBtn.disabled=false;
+        }
+        else {
+          startBtn.disabled=false;
+        };
+      };
+      startBtn.addEventListener("click", disableBtn);
+      stopBtn.addEventListener("click", disableBtn);
+      
+    });
+  </script>
+</head>
+<body>
+  <button id="startBtn">Start!</button>
+  <button id="stopBtn">Stop!</button>
+</body>
+</html>

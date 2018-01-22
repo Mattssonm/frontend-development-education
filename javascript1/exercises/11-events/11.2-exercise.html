@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--2 Skapa en HTML-sida med en button och ett div-element. Skapa en funktion som ska användas för att prenumerera på events. När funktionen anropas ska du skriva ut event.type och event.target till div-elementet. Funktionen ska prenumerera både på sidans load-event och knappens klick-event.
+-->
+<html>
+<head>
+  <title>11.2-exercise</title>
+  <style></style>
+  <script>
+    let callbackFunc = function(event) {
+      document.getElementsByTagName("div")[0].innerHTML+=(event.type + event.target + "<br>");  
+    };
+    
+    window.addEventListener("load", callbackFunc);
+    window.addEventListener("load", function() {
+      document.getElementById("btn").addEventListener("click", callbackFunc);
+    });
+    
+  </script>
+</head>
+<body>
+  <button id="btn">Click Me!</button>
+  <div></div>
+</body>
+</html>

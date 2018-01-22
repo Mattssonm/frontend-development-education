@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--Instructions: 5 Gör en sida med "flikar". Ett system med flikar är när man har två eller flera element (använd div) som finns på samma plats på sidan, men bara ett är synligt åt gången. Det ska finnas knappar eller andra element (ett per div) som man klickar på för att göra motsvarande element synligt. -->
+<html>
+<head>
+  <title>11.5-exercise</title>
+  <style>
+    #page1 {
+      background-color: aqua;
+    }
+    
+    #page2 {
+      background-color: hotpink;
+      display: none;
+    }
+    
+    input[name="group1"] {
+      display: none;
+    }
+    
+    label {
+      border: solid 2px black;
+      padding: 5px;
+    }
+  </style>
+  <script>
+    window.addEventListener("load", function() { 
+      let box1 = document.getElementById("box1");
+      let box2 = document.getElementById("box2");
+      const page1 = document.getElementById("page1");
+      const page2 = document.getElementById("page2");
+      
+      let displayPage = function() {
+        if (this == box1) {
+          page1.style.display = "block";
+          page2.style.display = "none";
+        }
+        else {
+          page1.style.display = "none";
+          page2.style.display = "block";
+        }
+      };  
+      
+      box1.addEventListener("click", displayPage);
+      box2.addEventListener("click", displayPage);
+    });
+  </script>
+</head>
+<body>
+  <input type="radio" name="group1" id="box1" checked>
+  <input type="radio" name="group1" id="box2">
+  <label for="box1">Page 1</label>
+  <label for="box2">Page 2</label>
+  <div id="page1"><p>content 1</p></div>
+  <div id="page2"><p>content 2</p></div>
+</body>
+</html>

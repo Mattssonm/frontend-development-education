@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--Instructions: Gör en sida som har en kryssruta med en label. När man klickar på label-elementet och kryssrutan blir ifylld ska ett annat element på sidan bli synligt. När man klickar igen ska elementet bli osynligt. Använd element.style.display för att göra saker synliga och osynliga. Använd absolut positionering för att undvika att de elementen som kommer efter byter plats när man togglar kryssrutan.
+ -->
+<html>
+<head>
+  <title>11.4-exercise</title>
+  <style>
+    #hiThere {
+      margin: auto;
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+      background-color: orange;
+      display: none;
+    }
+    p {
+      text-align: center;
+      padding-top: 35px;
+    }
+  </style>
+  <script>
+    window.addEventListener("load", function() { 
+      let theCheckbox = document.getElementById("theBox");
+      let hiThere = document.getElementById("hiThere");
+      theCheckbox.addEventListener("click", function(){
+        if (this.checked) {
+          console.log("checked");
+          hiThere.style.display = "block";
+          }
+        else {
+         console.log("not checked");
+          hiThere.style.display = "none";
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <input type="checkbox" id="theBox"><label for="theBox">Click me!</label>
+  <div id="hiThere">
+    <p>Hello There!</p>
+  </div>
+</body>
+</html>

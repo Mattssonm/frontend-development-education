@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--1 Skapa en funktion som körs när HTML-dokumentet har laddats klart. Funktionen ska ändra textinnehåll på ett valfritt element på webbsidan. Du ska använda eventet load.-->
+<html>
+<head>
+  <title>11.1-exercise</title>
+  <style></style>
+  <script>
+    window.addEventListener("load", function() { 
+      console.log("loaded");
+      console.log(event);
+      document.getElementById=(changeMe).innerHTML += " After Load";
+    });
+  </script>
+</head>
+<body>
+  <p id="changeMe">Before Load</p>
+</body>
+</html>
