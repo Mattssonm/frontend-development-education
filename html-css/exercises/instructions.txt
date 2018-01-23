@@ -114,8 +114,3 @@ div.classy ul li
 
 23 Skapa en webbsida med ett formulär. Tänk dig att det är en del av en webbshop, där man fyller i betalningsinformation. Du ska använda minst ett av varje av formulärelementen input, label, select, textarea och button. Använd CSS för att styla formuläret.
 
-9 Avancerad CSS
-1 Skapa en webbsida där texten wrappar runt en bild som ligger antingen på höger eller vänster sida i en container (div). Använd float och clear. Den ska ligga på GitHub. Exempel:
-
-2 Skapa en webbsida med hjälp av flexbox, som är så lik den vänstra bilden i exemplet nedan som möjligt. Lägg till media queries som ändrar layouten till den högra bilden om webbläsarens tillgängliga bredd är mindre än 800px.
-
