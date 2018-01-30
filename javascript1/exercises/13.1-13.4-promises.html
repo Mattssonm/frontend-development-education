@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--Instructions: 1 Skriv JavaScript som gör ett AJAX-anrop till https://forverkliga.se/JavaScript/api/simple.php med fetch. Gör så att resultatet skrivs ut i ett element på webbsidan.
+
+2 Resultatet från uppgift 1 är i JSON-format. Gör om det till ett objekt. Skriv ut värdet på objektets egenskaper message och info. Resultatet ska bli en instruktion för hur man kan anropa API:et simple.php.
+
+3 Se till att fetch körs från en button. Lägg till en textruta, där man ska kunna skriva in en querystring. Anropa API:et på de olika sätt som det stöder. Lägg till radio buttons, som användaren kan ha för att välja mellan användningsfallen: utan querystring, med rätt värde på key och med world i querystring.
+
+4 Om du har gjort rätt så kommer du att antingen få veta vad klockan är på webbservern, få en lista med statistik över länder, eller få ett felmeddelande. Gör om programmet så att det visar landinformationen i en tabell. Använd antingen en riktig tabell eller display-table. Tips: använd higher order functions, map och forEach.
+  -->
+<html>
+<head>
+  <title>13.1-13.4-exercise</title>
+  <style></style>
+  <script>
+    window.addEventListener("load", function() { 
+      fetch('https://forverkliga.se/JavaScript/api/simple.php')
+        .then(function(response) {
+  
+        return response.json();
+ 
+      }).then(function(response){
+        console.log(response)
+        document.getElementById("output").innerHTML = response.message +"<br>" + response.info;
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="output"></div>
+</body>
+</html>

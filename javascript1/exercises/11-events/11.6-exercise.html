@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--Instructions: 6 Gör en sida med element som ändrar för- eller bakgrundsfärg när musen rör sig över dem. Använd CSS-klasser och mouseenter och mouseleave events. -->
+<html>
+<head>
+  <title>11.6-exercise</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      border: solid 2px black;
+      margin: 50px;
+      display: inline-block;
+    }
+  </style>
+  <script>
+    window.addEventListener("load", function() { 
+      document.getElementById("box1").addEventListener("mouseenter", function() {
+        this.style.backgroundColor="yellow";
+      });
+      document.getElementById("box2").addEventListener("mouseenter", function() {
+        this.style.backgroundColor="yellow";
+      });
+      document.getElementById("box1").addEventListener("mouseleave", function() {
+        this.style.backgroundColor="white";
+      });
+      document.getElementById("box2").addEventListener("mouseleave", function() {
+        this.style.backgroundColor="white";
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="box1" class="box">Hover</div>
+  <div id="box2" class="box">Hover</div>
+</body>
+</html>

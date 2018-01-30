@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Instructions (swedish): 
+*1 Gör en webbsida med en <button> och en <div>. När användaren klickar på knappen ska du göra ett GET request till följande URL och lägga resultatet i div-elementet. URL: "http://mardby.se/AJK15G/lorem_text.php"
+*2 Ändra koden så att den använder en querystring som är "numberOfWords=10" och URL "http://mardby.se/AJK15G/lorem_text_random.php"
+*3 Lägg till en textruta så att användaren kan välja vad numberOfWords ska ha för värde.
+*4 Ändra koden så att varje gång användaren klickar på knappen ska resultatet från AJAX-anropet läggas i en oordnad lista, <ul>
+-->
+
+<html>
+<head>
+  <title>12.1-exercise</title>
+  <style></style>
+  <script>
+    window.addEventListener("load", function() { 
+      let req = new XMLHttpRequest();
+      
+      document.getElementById("btn").addEventListener("click", function(){
+        req.onreadystatechange = function(event) {
+          console.log(req);
+          console.log("readyState:" + req.readyState);
+          console.log("status:" + req.status);
+          console.log("responseText:" + req.responseText);
+          
+          if( req.readyState == 4 ) {
+            console.log('- success!');
+            
+            document.getElementById("submitText").innerHTML += "<li>" + req.responseText + "</li>";
+            console.log("-----");
+          }
+        };
+        let wordCount = document.getElementById("wordCount").value;
+        req.open('GET', 'http://mardby.se/AJK15G/lorem_text_random.php?numberOfWords=' + wordCount + '');
+        req.send();
+      });
+    });
+  </script>
+</head>
+<body>
+  <input type="number" id="wordCount" value="2">
+  <button id="btn">Click Me!</button>
+  <div>
+    <ul id="submitText">
+      
+    </ul>
+  </div>
+</body>
+</html>

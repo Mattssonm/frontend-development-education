@@ -1,0 +1,60 @@
+<!DOCTYPEhtml>
+<html>
+<head>
+  <title>1-firebase.html</title>
+  
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    // Kan endast använda apiKey på dom sidorna vi tillåter använda det. Det gör vi på firebase.
+    var config = {
+      apiKey: "AIzaSyALFkRkaZLwkH86m-VNSf_306EatDSQ6WE",
+      authDomain: "demofrontend-81e95.firebaseapp.com",
+      databaseURL: "https://demofrontend-81e95.firebaseio.com",
+      projectId: "demofrontend-81e95",
+      storageBucket: "",
+      messagingSenderId: "233267190366"
+    };
+    firebase.initializeApp(config);
+    
+    const newRecipe = {
+      namn: "tacos",
+      portioner: 1,
+      ingrediens1: "salladsmix",
+      ingrediens2: {
+        mängd: "3 st",
+        ämne: "tacoskal"
+      },
+      ingrediens3: "köttfärs"
+    }
+    const db = firebase.database();
+//    console.log("Adding to databse...")
+//    db.ref("recept1/").push({ "ämne": "sylt", "mängd": "1 msk"});
+//    db.ref("/recept5").set(newRecipe);
+//    console.log("Finished adding to database.")
+    
+    db.ref("/").on("value", function(snapshot) {
+      console.log("On value: hämtar hela databasen.");
+      let data = snapshot.val();
+      console.log(data);
+      
+      let divRecept = document.getElementById("recept");
+      for ( let recipe in data) {
+        let r = data[recipe];
+        console.log(`receptet ${data[recipe].namn} + innehåller: `, data[recipe]);
+        const newDiv = document.createElement("div");
+        let str = JSON.stringify(r);
+        newDiv.innerHTML = `<strong>${r.namn}</strong><br/>
+        ${str}</br/>`;
+        divRecept.appendChild(newDiv);
+      }
+      
+    });
+  </script>
+</head>
+<body>
+  <div id="recept">
+
+  </div>
+</body>
+</html>

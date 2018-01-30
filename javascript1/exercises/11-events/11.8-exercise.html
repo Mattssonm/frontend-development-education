@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--Instructions: 8 Gör en sida med ett textfält. När användaren håller nere en tangent ska du skriva ut i en div vilka knappar som hålls nere. Vilka events ska man använda? Tips: googla på MDN keyevent  -->
+<html>
+<head>
+  <title>11.8-exercise</title>
+  <style></style>
+  <script>
+    window.addEventListener("load", function() { 
+      document.getElementById("textInput").addEventListener("keypress", function(event) {
+        document.getElementById("showKeys").innerHTML += event.key;
+      })
+      document.getElementById("textInput").addEventListener("keyup", function(event) {
+        document.getElementById("showKeys").innerHTML = "";
+      })
+    });
+  </script>
+</head>
+<body>
+  <input type="text" id="textInput"> 
+  <div id="showKeys">
+  </div>
+</body>
+</html>
