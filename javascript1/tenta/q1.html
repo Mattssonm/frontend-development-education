@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--Instructions:  -->
+<html>
+<head>
+  <title>-exercise</title>
+  <style></style>
+  <script>
+    window.addEventListener("load", function() { 
+      //A
+      document.querySelector("input").addEventListener("change", function(){
+        document.body.style.backgroundColor = this.value;
+      });
+      //B
+      let eventOccurred = function() {
+        this.innerHTML = "Event occurred";
+      };
+      document.getElementById("clickButton").addEventListener("focus", eventOccurred);
+      document.getElementById("clickButton").addEventListener("mouseout", eventOccurred);
+      //C
+      document.getElementById("removeButton").addEventListener("click", function(){
+        document.getElementById("party").removeChild(this);
+      });
+    });
+    
+  </script>
+</head>
+<body>
+  <div id="party">
+    <button id="clickButton">Click me</button>
+    <button id="removeButton">Remove me friend</button>
+  </div>
+  <input type="text" placeholder="Skriv in en HTML-färg">
+  <ul class="dynamicEntry"></ul>
+</body>
+</html>

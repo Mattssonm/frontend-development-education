@@ -12,20 +12,62 @@
   <title>13.1-13.4-exercise</title>
   <style></style>
   <script>
-    window.addEventListener("load", function() { 
-      fetch('https://forverkliga.se/JavaScript/api/simple.php')
-        .then(function(response) {
-  
-        return response.json();
- 
-      }).then(function(response){
-        console.log(response)
-        document.getElementById("output").innerHTML = response.message +"<br>" + response.info;
+    window.addEventListener("load", function() {
+      let txtInput = document.getElementById("txtInput")
+      let outputDiv = document.getElementById("output")
+      let radios = document.querySelectorAll("input[type=radio]");
+      //add listeners to radio buttons
+      for (let i = 0; i<radios.length; i++) {
+        radios[i].addEventListener("click", function(){
+          txtInput.value = this.value;
+        });
+      };
+      
+      document.getElementById("submitBtn").addEventListener("click", function(){
+        let txtInputValue = txtInput.value;
+        //fetch from the api with given txtInputValue
+        fetch('https://forverkliga.se/JavaScript/api/simple.php?' + txtInputValue)
+          .then(function(response) {
+          return response.json();
+          
+          }).then(function(response){
+          console.log(response);
+          
+          //output response to div
+          if (txtInputValue == "world") {
+            //add table, and one tr with four th with header for each column
+            let createTable = "<table><tr><th>Name</th><th>Continent</th><th>Population</th><th>%Female</th></tr>";
+            //loop through the whole array
+            for (let i=0; i<response.length; i++) {
+              createTable += "<tr>";
+              createTable += "<td>"+response[i].name+"</td>";
+              createTable += "<td>"+response[i].continent+"</td>";
+              createTable += "<td>"+response[i].population+"</td>";
+              createTable += "<td>"+response[i].pFemale+"</td>";
+              createTable += "</tr>";
+            }
+            createTable += "</table>";
+            outputDiv.innerHTML = createTable;
+          }
+          else if (txtInputValue == "key=value") {
+            outputDiv.innerHTML = response.message + "<br>" + response.time;
+          }
+          else
+            outputDiv.innerHTML = response.message + "<br>" + response.info;
+        });
       });
     });
   </script>
 </head>
 <body>
-  <div id="output"></div>
+  <input type="text" id="txtInput">
+  <button id="submitBtn">Click Me!</button>
+  <br>
+  <input type="radio" name="group1" id="radio1" checked="true" value="">
+  <input type="radio" name="group1" id="radio2" value="world">
+  <input type="radio" name="group1" id="radio3" value="key=value">
+  <div id="output">
+    
+  </div>
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--Instructions:  -->
+<html>
+<head>
+  <title>q3</title>
+  <style></style>
+  <script>
+    window.addEventListener("load", function() {
+      function makeListItems(list) {
+        let output=[];
+        list.forEach(x => {
+          let liElement = document.createElement("li");
+          liElement.innerHTML = x.name + " spelas av " + x.realName;
+          output.push(liElement);
+        });
+        return output;
+      };
+      const characters = [
+        {name: "Kylo ren", realName: "Adam Driver"},
+        {name: "Rei", realName: "Daisy Ridley"},
+        {name: "Finn", realName: "John Boyega"},
+        {name: "Poe Dameron", realName: "Oscar Isaac"}
+      ];
+      let listOfElements = makeListItems(characters);
+      console.log(listOfElements);
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>

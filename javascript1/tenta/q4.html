@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--Instructions:  -->
+<html>
+<head>
+  <title>q4</title>
+  <style></style>
+  <script>
+    window.addEventListener("load", function() { 
+      class vehicle {
+        constructor(name, currentNumOfPassengers) {
+          this.name = name;
+          this.currentNumOfPassengers = currentNumOfPassengers;
+        }
+        increasePassengers(num) {
+          this.currentNumOfPassengers += num;
+        }
+        //numberOfDrivers: 1;
+      };
+      let car = new vehicle("car", 4);
+      car.increasePassengers(1);
+      console.log(car);
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>
