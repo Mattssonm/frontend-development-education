@@ -1,0 +1,52 @@
+<DOCTYPE! html>
+<html>
+<head>
+  <title>Lab 3</title>
+  <meta charset="UTF-8">
+  <style>
+    div {
+      width: 300px;
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      
+      let apiBtn = document.getElementById("apiBtn");
+      let output = document.getElementById("output");
+      let ajax = new XMLHttpRequest();
+
+      apiBtn.onclick = event => {
+        ajax.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php/?finish=true&key=oiqc9ro3oi6w');
+        ajax.send();
+      };
+
+      ajax.onreadystatechange = event => {
+        console.log("readyState:" + ajax.readyState);
+        console.log("status:" + ajax.status);
+        //console.log("responseText:" + ajax.responseText);
+        if( ajax.readyState == 4 ) {
+          console.log('- success!');
+          console.log(ajax.responseText);
+          let parsedJson = JSON.parse(ajax.responseText);
+          console.log(parsedJson);
+          output.innerHTML = "Response: " + JSON.stringify(parsedJson);
+        }
+        console.log("-----");
+      }
+      // info: key: "oiqc9ro3oi6w"
+      //name: "MarkusMattsson
+    };
+  </script>
+</head>
+<body>
+  <div>
+    <h2>Assignment (Swedish)</h2>
+    <p>Skriv ett JavaScript-program som använder AJAX för att hämta information från URL:en http://forverkliga.se/JavaScript/api/ajax-lab.php med hjälp av XMLHttpRequest.
+    Vad man får från URL:en beror på vilka värden man skickar med i sin querystring. Du ska registrera dig för labben för att få en hemlig nyckel. Sedan ska du använda nyckeln för att lämna in labben.</p>
+  </div>
+  <div>
+    <button id="apiBtn">Call API</button>
+    <div id="output"></div>
+  </div>
+</body>
+</html>
