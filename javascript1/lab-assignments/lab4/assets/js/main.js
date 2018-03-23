@@ -25,8 +25,6 @@ window.onload = () => {
   //Other
   let consoleDiv = document.getElementById("consoleDiv");
 	let activeKey = "";
-  
-  
 
 //----------- Functions ------------
   function thereIsActiveKey(key) {
@@ -43,7 +41,7 @@ window.onload = () => {
     let query = "?";
     let url = "https://www.forverkliga.se/JavaScript/api/crud.php";
 
-    //set operation
+    //Add operation
     if (op) {
       if (op == "requestKey") {
         query += "" + op + "";
@@ -52,33 +50,33 @@ window.onload = () => {
       }
     }
 
-    //add key
+    //Add key
     if (key) {
       query += "&key=" + key + "";
     }
 
-    //add id
+    //Add id
     if (id) {
       query += "&id=" + id + "";
     }
 
-    //add title
+    //Add title
     if (title) {
       query += "&title=" + title + "";
     }
 
-    //add author
+    //Add author
     if (author) {
       query += "&author=" + author + "";
     }
     consoleLog(query);
     
-    //call API with query
+    //Call API with query
     ajax.open('GET', url+query);
     ajax.send();
   };
 
-//----------- Button Listeners ----------
+//----------- API Button Listeners ----------
   requestApiBtn.onclick = () => {
     callApi(keyAjax, "requestKey");
   };
@@ -114,21 +112,18 @@ window.onload = () => {
       consoleLog("No active key");
     }
   }
-//------------- API Load Listeners --------------
-  keyAjax.onreadystatechange = () => {
-    if (keyAjax.readyState == 4 && keyAjax.status === 200) {
-      let parsedJson = JSON.parse(keyAjax.responseText);
-      activeKey = parsedJson.key;
-      consoleLog("Active Key: " + activeKey);
-    }
-  };
   
-  insertAjax.onreadystatechange = () => {
-    if (insertAjax.readyState == 4 && insertAjax.status === 200) {
-      let parsedJson = JSON.parse(insertAjax.responseText);
-      consoleLog(JSON.stringify(parsedJson));
-    }
-  };
+//------------- API Load Listeners --------------
+  keyAjax.addEventListener("load", () => {
+    let parsedJson = JSON.parse(keyAjax.responseText);
+    activeKey = parsedJson.key;
+    consoleLog("Active Key: " + activeKey);
+  });
+  
+  insertAjax.addEventListener("load", () => {
+    let parsedJson = JSON.parse(insertAjax.responseText);
+    consoleLog(JSON.stringify(parsedJson));
+  });
   
   selectAjax.addEventListener("load", () => {
     let parsedJson = JSON.parse(selectAjax.responseText);
