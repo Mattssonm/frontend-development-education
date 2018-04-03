@@ -29,7 +29,6 @@ window.onload = () => {
   let errorText = document.getElementById("errorText");
   let errorDiv = document.getElementById("errorDiv");
   let displayActiveKey = document.getElementById("displayActiveKey");	let activeKey = "";
-  let exampleList = [["Harry Potter 1", "J.K. Rowling"], ["Harry Potter 2", "J.K. Rowling"], ["Harry Potter 3", "J.K. Rowling"], ["Harry Potter 4", "J.K. Rowling"], ["Harry Potter 5", "J.K. Rowling"], ["Harry Potter 6", "J.K. Rowling"], ["Harry Potter 7", "J.K. Rowling"]];
   let exampleCounter = 0;
   let numberOfTimesCalledApi = 0;  
   
@@ -206,15 +205,6 @@ window.onload = () => {
       errorLog("No active key");
     }
   });	
-  
-  addExampleBtn.addEventListener("click", () => {
-    if (thereIsActiveKey(activeKey)) {
-      callApi(insertAjax, "insert", activeKey, 0, exampleList[exampleCounter][0], exampleList[exampleCounter][1]);
-      exampleCounter++;
-    } else {
-      errorLog("No active key");
-    }
-  });
   
 //------------- API Load Listeners --------------
   keyAjax.addEventListener("load", () => {
