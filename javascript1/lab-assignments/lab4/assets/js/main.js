@@ -30,7 +30,8 @@ window.onload = () => {
   let errorDiv = document.getElementById("errorDiv");
   let displayActiveKey = document.getElementById("displayActiveKey");	let activeKey = "";
   let exampleCounter = 0;
-  let numberOfTimesCalledApi = 0;  
+  let numberOfTimesCalledApi = 0;
+  let lastApiCall = [];
   
 //----------- Functions ------------
   function thereIsActiveKey(key) {
@@ -46,22 +47,24 @@ window.onload = () => {
   }
   
   function errorLog(message, numberOfFailedCalls) {
-    if (errorText.innerHTML == message) {
-      hideError();
-      setTimeout(showError, 250);
+    if (message == "Success!") {
+      errorDiv.setAttribute("class", "alert-success");
     } else {
-      errorText.innerHTML = message;
-      if (numberOfFailedCalls > 1) {
-        errorText.innerHTML += ". Failed calls: " + numberOfFailedCalls;
-      }
-      showError();
+      errorDiv.setAttribute("class", "alert-danger");
     }
+    errorText.innerHTML = message;
+    if (numberOfFailedCalls > 0) {
+      errorText.innerHTML += " Failed calls: " + numberOfFailedCalls;
+    }
+    setTimeout(showError, 100);
+    setTimeout(hideError, 3000);
   };
 
   function callApi(ajax, op, key, id, title, author) {
     let query = "?";
     let url = "https://www.forverkliga.se/JavaScript/api/crud.php";
-
+    lastApiCall = [ajax, op, key, id, title, author];
+    console.log(lastApiCall);
     //Add operation
     if (op) {
       if (op == "requestKey") {
@@ -209,53 +212,85 @@ window.onload = () => {
 //------------- API Load Listeners --------------
   keyAjax.addEventListener("load", () => {
     let parsedJson = JSON.parse(keyAjax.responseText);
-    if (parsedJson.status == "error"){
-      errorLog(parsedJson.message);
+    if (parsedJson.status == "error") {
+      if (numberOfTimesCalledApi == 10) {
+      errorLog("Max calls exceeded", numberOfTimesCalledApi)
+      } else {
+      callApi(lastApiCall[0], lastApiCall[1]);
+      numberOfTimesCalledApi++;
+      }
     } else {
       activeKey = parsedJson.key;
       displayActiveKey.innerHTML = "Current Key: " + activeKey;
+      errorLog("Success!", numberOfTimesCalledApi);
+      numberOfTimesCalledApi = 0;
     }
   });
   
   insertAjax.addEventListener("load", () => {
     let parsedJson = JSON.parse(insertAjax.responseText);
     if (parsedJson.status == "error"){
-      errorLog(parsedJson.message);
+      if (!addTitle.value || !addAuthor.value) {
+        console.log("hej");
+        errorLog(parsedJson.message);
+      }
+      else if (numberOfTimesCalledApi == 10) {
+      errorLog("Max calls exceeded", numberOfTimesCalledApi)
+      } else {
+      callApi(lastApiCall[0], lastApiCall[1], lastApiCall[2], lastApiCall[3], lastApiCall[4], lastApiCall[5]);
+      numberOfTimesCalledApi++;
+      }
     } else {
+      errorLog("Success!", numberOfTimesCalledApi);
+      numberOfTimesCalledApi = 0;
       callApi(selectAjax, "select", activeKey);
-      hideError();
     }
   });
   
   selectAjax.addEventListener("load", () => {
     let parsedJson = JSON.parse(selectAjax.responseText);
-    if (parsedJson.status == "error"){
-      callApi(selectAjax, "select", activeKey);
+    if (parsedJson.status == "error") {
+      if (numberOfTimesCalledApi == 10) {
+      errorLog("Max calls exceeded", numberOfTimesCalledApi)
+      } else {
+      callApi(lastApiCall[0], lastApiCall[1], lastApiCall[2]);
       numberOfTimesCalledApi++;
-      errorLog(parsedJson.message, numberOfTimesCalledApi)
+      }
     } else {
-      displayBookTable(parsedJson.data);
       numberOfTimesCalledApi = 0;
+      displayBookTable(parsedJson.data);
     }
   });
   
   updateAjax.addEventListener("load", () => {
     let parsedJson = JSON.parse(updateAjax.responseText);
     if (parsedJson.status == "error"){
-      errorLog(parsedJson.message);
+      if (numberOfTimesCalledApi == 10) {
+      errorLog("Max calls exceeded", numberOfTimesCalledApi)
+      } else {
+      callApi(lastApiCall[0], lastApiCall[1], lastApiCall[2], lastApiCall[3], lastApiCall[4], lastApiCall[5]);
+      numberOfTimesCalledApi++;
+      }
     } else {
+      errorLog("Success!", numberOfTimesCalledApi);
+      numberOfTimesCalledApi = 0;
       callApi(selectAjax, "select", activeKey);
-      hideError();
     }
   });
   
   deleteAjax.addEventListener("load", () => {
     let parsedJson = JSON.parse(deleteAjax.responseText);
     if (parsedJson.status == "error"){
-      errorLog(parsedJson.message);
+      if (numberOfTimesCalledApi == 10) {
+      errorLog("Max calls exceeded", numberOfTimesCalledApi)
+      } else {
+      callApi(lastApiCall[0], lastApiCall[1], lastApiCall[2], lastApiCall[3]);
+      numberOfTimesCalledApi++;
+      }
     } else {
+      errorLog("Success!", numberOfTimesCalledApi);
+      numberOfTimesCalledApi = 0;
       callApi(selectAjax, "select", activeKey);
-      hideError();
     }
   });
   
