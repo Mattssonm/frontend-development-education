@@ -4,6 +4,70 @@
 	padding: 0;
 }
 
-div {
-	margin: 50px;
+body {
+  background-color: #eeeeee;
+}
+
+h1 {
+  text-align: center;
+}
+
+main {
+  width: 60%;
+  border-radius: 15px;
+  background-color: white;
+  margin: auto;
+  padding: 20px
+}
+
+i {
+  cursor: pointer;
+  font-size: 1.5em;
+  margin-left: 5px;
+}
+
+#errorDiv {
+  width: 60%;
+  padding: 5px;
+  margin: 10px auto;
+  border-radius: 5px;
+  opacity: 0;
+}
+
+.transition {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -ms-transition: opacity 0.25s ease-in-out;
+  -o-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+}
+
+#errorText {
+  text-align: center;
+  margin: 0;
+}
+
+#displayActiveKey {
+  margin-left: 5px;
+}
+
+#addBookDiv {
+  opacity: 0;
+  display: inline-block;
+}
+
+.float-right {
+  float: right;
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    main {
+        width: 90%;
+    }
 }

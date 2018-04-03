@@ -4,33 +4,41 @@
 	<title>Lab 4</title>
 	<meta charset="utf-8">
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/main.css">
 	<script src="assets/js/main.js"></script>
 </head>
 <body>
-	<div>
-		<button class="btn btn-primary" id="requestApiBtn">Request Key</button>
-	</div>
-	<div>
-		<button class="btn btn-primary" id="addBookBtn">Add Book</button>
+  <header class="jumbotron">
+    <h1>My Digital Library</h1>
+  </header>
+  <main>
+    <span id="displayActiveKey" class="text-info">Current Key:</span> 		
+    <button class="btn float-right" id="requestApiBtn">Request Key</button>
+    <table id="bookTable" class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+    <i id="showDivBtn" class="fas fa-plus"></i>
+    <div id="addBookDiv" class="transition">
 		<input id="addTitle" type="text" placeholder="title">
 		<input id="addAuthor" type="text" placeholder="author">
-	</div>
-	<div>
-		<button class="btn btn-primary" id="viewBooksBtn">View Books</button>
-	</div>
-	<div>
-		<button class="btn btn-primary" id="changeBookBtn">Change Book</button>
-		<input id="updateId" type="text" placeholder="id">
-		<input id="updateTitle" type="text" placeholder="title">
-		<input id="updateAuthor" type="text" placeholder="author">
-	</div>
-	<div>
-		<button class="btn btn-primary" id="deleteBookBtn">Delete Button</button>
-		<input id="deleteId" type="text" placeholder="id">
-	</div>
-	<div id="consoleDiv">
-	</div>
+    <button class="btn btn-primary" id="addBookBtn">Add Book</button>
+    </div>
+    <button id="addExampleBtn" class="btn btn-primary float-right">Add Example</button>  
+    <div id="errorDiv" class="alert-danger transition">
+      <p id="errorText" class="">Error:</p>
+	 </div>
+  </main>
 </body>
 </html>

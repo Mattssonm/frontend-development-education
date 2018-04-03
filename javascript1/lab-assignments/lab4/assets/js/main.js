@@ -2,10 +2,12 @@ window.onload = () => {
 //---------- Variable Declaration------------- 
   //Buttons
 	let requestApiBtn = document.getElementById("requestApiBtn");
+  let showDivBtn = document.getElementById("showDivBtn");
 	let addBookBtn = document.getElementById("addBookBtn");
   let viewBooksBtn = document.getElementById("viewBooksBtn");
 	let changeBookBtn = document.getElementById("changeBookBtn");
 	let deleteBookBtn = document.getElementById("deleteBookBtn");
+  let addExampleBtn = document.getElementById("addExampleBtn");
   
   //Inputs
 	let addTitle = document.getElementById("addTitle");
@@ -23,20 +25,40 @@ window.onload = () => {
   let deleteAjax = new XMLHttpRequest();
   
   //Other
-  let consoleDiv = document.getElementById("consoleDiv");
-	let activeKey = "";
-
+  let addBookDiv = document.getElementById("addBookDiv");
+  let errorText = document.getElementById("errorText");
+  let errorDiv = document.getElementById("errorDiv");
+  let displayActiveKey = document.getElementById("displayActiveKey");	let activeKey = "";
+  let exampleList = [["Harry Potter 1", "J.K. Rowling"], ["Harry Potter 2", "J.K. Rowling"], ["Harry Potter 3", "J.K. Rowling"], ["Harry Potter 4", "J.K. Rowling"], ["Harry Potter 5", "J.K. Rowling"], ["Harry Potter 6", "J.K. Rowling"], ["Harry Potter 7", "J.K. Rowling"]];
+  let exampleCounter = 0;
+  let numberOfTimesCalledApi = 0;  
+  
 //----------- Functions ------------
   function thereIsActiveKey(key) {
     return Boolean(key);
   };
   
-  function consoleLog(message) {
-    let text = document.createElement("p")
-    text.innerHTML = message;
-    consoleDiv.appendChild(text);
-  };
+  function hideError() {
+    errorDiv.style.opacity = 0;
+  }
   
+  function showError() {
+    errorDiv.style.opacity = 1;
+  }
+  
+  function errorLog(message, numberOfFailedCalls) {
+    if (errorText.innerHTML == message) {
+      hideError();
+      setTimeout(showError, 250);
+    } else {
+      errorText.innerHTML = message;
+      if (numberOfFailedCalls > 1) {
+        errorText.innerHTML += ". Failed calls: " + numberOfFailedCalls;
+      }
+      showError();
+    }
+  };
+
   function callApi(ajax, op, key, id, title, author) {
     let query = "?";
     let url = "https://www.forverkliga.se/JavaScript/api/crud.php";
@@ -69,74 +91,186 @@ window.onload = () => {
     if (author) {
       query += "&author=" + author + "";
     }
-    consoleLog(query);
     
     //Call API with query
     ajax.open('GET', url+query);
     ajax.send();
   };
-
-//----------- API Button Listeners ----------
-  requestApiBtn.onclick = () => {
-    callApi(keyAjax, "requestKey");
-  };
   
-  addBookBtn.onclick = () => {
+  function displayBookTable(books) {
+    let tableBody = document.getElementsByTagName("tbody")[0];
+    //Reset table body
+    tableBody.innerHTML = "";
+    let rowCounter = 1;
+    
+    //Loop all books and create a row for each
+    books.forEach( book => {
+      
+      //Variable declaration
+      let newRow = document.createElement("tr");
+      let th = document.createElement("th");
+      let titleTd = document.createElement("td");
+      let titleSpan = document.createElement("span");
+      let titleInput = document.createElement("input");
+      let authorTd = document.createElement("td");
+      let authorSpan = document.createElement("span");
+      let authorInput = document.createElement("input");
+      let removeTd = document.createElement("td");
+      let removeBtn = document.createElement("i");
+      
+      //Add event listeners
+      titleSpan.addEventListener("click", () => {
+        titleTd.replaceChild(titleInput, titleSpan);
+      });
+      
+      authorSpan.addEventListener("click", () => {
+        authorTd.replaceChild(authorInput, authorSpan);
+      });
+      
+      titleInput.addEventListener("blur", () => {
+        callApi(updateAjax, "update", activeKey, book.id, titleInput.value, book.author)
+      });
+      
+      authorInput.addEventListener("blur", () => {
+        callApi(updateAjax, "update", activeKey, book.id, book.title, authorInput.value)
+      });
+      
+      titleInput.addEventListener("mouseout", () => {
+        callApi(updateAjax, "update", activeKey, book.id, titleInput.value, book.author)
+      });
+      
+      authorInput.addEventListener("mouseout", () => {
+        callApi(updateAjax, "update", activeKey, book.id, book.title, authorInput.value)
+      });
+      
+      titleInput.addEventListener('keypress', function (e) {
+          var key = e.which || e.keyCode;
+          if (key === 13) {
+            callApi(updateAjax, "update", activeKey, book.id, titleInput.value, book.author)
+          }
+      });
+      
+      authorInput.addEventListener('keypress', function (e) {
+          var key = e.which || e.keyCode;
+          if (key === 13) {
+            callApi(updateAjax, "update", activeKey, book.id, book.title, authorInput.value)
+          }
+      });
+      
+      removeBtn.addEventListener("click", () => {
+        callApi(deleteAjax, "delete", activeKey, book.id);
+      });
+      
+      //Set attributes and innerHTML
+      th.setAttribute("scope", "row");
+      th.innerHTML = rowCounter;
+      rowCounter++;
+      titleSpan.innerHTML = book.title;
+      titleInput.setAttribute("type", "text");
+      titleInput.setAttribute("value", book.title);
+      authorSpan.innerHTML = book.author;
+      authorInput.setAttribute("type", "text");
+      authorInput.setAttribute("value", book.author);
+      removeBtn.classList.add("fas", "fa-times");
+      
+      //Append elements
+      titleTd.appendChild(titleSpan);
+      authorTd.appendChild(authorSpan);
+      removeTd.appendChild(removeBtn);
+      newRow.appendChild(th);
+      newRow.appendChild(titleTd);
+      newRow.appendChild(authorTd);
+      newRow.appendChild(removeTd)
+      tableBody.appendChild(newRow);
+    });
+  }
+
+//----------- Button Listeners ----------
+  
+  showDivBtn.addEventListener("click", () => {
+    if (addBookDiv.style.opacity == 0) {
+      addBookDiv.style.opacity = 1;
+    } else {
+      addBookDiv.style.opacity = 0;
+    }
+  });
+  
+  requestApiBtn.addEventListener("click", () => {
+    callApi(keyAjax, "requestKey");
+  });
+  
+  addBookBtn.addEventListener("click", () => {
     if (thereIsActiveKey(activeKey)) {
       callApi(insertAjax, "insert", activeKey, 0, addTitle.value, addAuthor.value);
     } else {
-      consoleLog("No active key");
+      errorLog("No active key");
     }
-  }	
+  });	
   
-  viewBooksBtn.onclick = () => {
+  addExampleBtn.addEventListener("click", () => {
     if (thereIsActiveKey(activeKey)) {
-      callApi(selectAjax, "select", activeKey);
+      callApi(insertAjax, "insert", activeKey, 0, exampleList[exampleCounter][0], exampleList[exampleCounter][1]);
+      exampleCounter++;
     } else {
-      consoleLog("No active key");
+      errorLog("No active key");
     }
-  }
-  
-  changeBookBtn.onclick = () => {
-    if (thereIsActiveKey(activeKey)) {
-      callApi(updateAjax, "update", activeKey, updateId.value, updateTitle.value, updateAuthor.value);
-    } else {
-      consoleLog("No active key");
-    }
-  }
-  
-  deleteBookBtn.onclick = () => {
-    if (thereIsActiveKey(activeKey)) {
-      callApi(deleteAjax, "delete", activeKey, deleteId.value);
-    } else {
-      consoleLog("No active key");
-    }
-  }
+  });
   
 //------------- API Load Listeners --------------
   keyAjax.addEventListener("load", () => {
     let parsedJson = JSON.parse(keyAjax.responseText);
-    activeKey = parsedJson.key;
-    consoleLog("Active Key: " + activeKey);
+    if (parsedJson.status == "error"){
+      errorLog(parsedJson.message);
+    } else {
+      activeKey = parsedJson.key;
+      displayActiveKey.innerHTML = "Current Key: " + activeKey;
+    }
   });
   
   insertAjax.addEventListener("load", () => {
     let parsedJson = JSON.parse(insertAjax.responseText);
-    consoleLog(JSON.stringify(parsedJson));
+    if (parsedJson.status == "error"){
+      errorLog(parsedJson.message);
+    } else {
+      callApi(selectAjax, "select", activeKey);
+      hideError();
+    }
   });
   
   selectAjax.addEventListener("load", () => {
     let parsedJson = JSON.parse(selectAjax.responseText);
-    consoleLog(JSON.stringify(parsedJson));
+    if (parsedJson.status == "error"){
+      callApi(selectAjax, "select", activeKey);
+      numberOfTimesCalledApi++;
+      errorLog(parsedJson.message, numberOfTimesCalledApi)
+    } else {
+      displayBookTable(parsedJson.data);
+      numberOfTimesCalledApi = 0;
+    }
   });
   
   updateAjax.addEventListener("load", () => {
     let parsedJson = JSON.parse(updateAjax.responseText);
-    consoleLog(JSON.stringify(parsedJson));
+    if (parsedJson.status == "error"){
+      errorLog(parsedJson.message);
+    } else {
+      callApi(selectAjax, "select", activeKey);
+      hideError();
+    }
   });
   
   deleteAjax.addEventListener("load", () => {
     let parsedJson = JSON.parse(deleteAjax.responseText);
-    consoleLog(JSON.stringify(parsedJson));
+    if (parsedJson.status == "error"){
+      errorLog(parsedJson.message);
+    } else {
+      callApi(selectAjax, "select", activeKey);
+      hideError();
+    }
   });
+  
+  
+  //------------- Other --------------
+  //Request key on page load
+  callApi(keyAjax, "requestKey");
 };

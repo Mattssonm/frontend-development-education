@@ -1,23 +1,36 @@
 My Digital Library - Backlog
 
 As a user I want to easily view, modify and remove current books in my library. 
-  *Books should be placed in a table 
-  *When i click a book I want to be a able to directly modify or remove books.
+  +*Books should be placed in a table 
+  +*When i click a book I want to be a able to directly modify or remove books.
 
 As a user I really would prefer to not have to click a button to call for a key, but I would like to see the key. 
-  *Call for key onload, and show it in the top left or top right corner, prompt any errors doing this. 
+  +*Call for key onload, and show it in the top left or top right corner. 
   
 As a user I want to see any errors that might occur using the unstable API. 
-  *A popup which slides up from the bottom of the page.
+  +*A error box in the bottom of main.
+
+Extra:
+
+As a user I would like the design to be responsive so I can use this page on my phone or tablet
+
+As a user I don't want to see all books directly
+  *Use pagination and view only 10 books on each page. 
 
 As a user I want to download a list of books into the page.
   *Hey, you dont seem to have any books in your library, do you want to download a premade list of books or create your own? 
 
-As a user I would like to be able to sort books in title and author. 
+Bugs: 
+  +* Update blur does not work as intended
+  * Opacity 0 still makes things clickable
 
-As a user i would like to be able to search for books
-  
-As a user I don't want to see all books directly
-  *Use pagination and view only 10 books on each page. 
+För godkänt:
+visar eventuella felmeddelanden och hur många gånger anrop till API:et har misslyckats
+
+För väl godkänt: 
+är responsiv, dvs fungerar även på mindre skärmar
+har en funktion för att lägga till ett antal böcker till listan, från ett annat API
+
+https://github.com/Asbert75/theLibrary/blob/master/index.js
 
 
