@@ -1,0 +1,44 @@
+<DOCTYPE!>
+<html>
+<head>
+  <title>Lab4 - Calculator</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="main.css">
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <section id="root">
+    <div :class="display">
+      <p id="entry">{{entryData}}</p>
+    </div>
+    <div>
+      <button @click="addEntry">7</button>
+      <button @click="addEntry">8</button>
+      <button @click="addEntry">9</button>
+      <button @click="addEntry">/</button>
+    </div>
+    <div>
+      <button @click="addEntry">4</button>
+      <button @click="addEntry">5</button>
+      <button @click="addEntry">6</button>
+      <button @click="addEntry">*</button>
+    </div>
+    <div>
+      <button @click="addEntry">1</button>
+      <button @click="addEntry">2</button>
+      <button @click="addEntry">3</button>
+      <button @click="addEntry">-</button>
+    </div>
+    <div>
+      <button @click="addEntry">0</button>
+      <button @click="addEntry">.</button>
+      <button @click="addEntry">+</button>
+      <button @click="calculateEntries">=</button>
+    </div>
+    <div>
+      <button id="clear" @click ="clearEntries">C</button>
+    </div>
+  </section>
+</body>
+</html>
