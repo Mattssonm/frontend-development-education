@@ -9,35 +9,38 @@
 </head>
 <body>
   <section id="root">
-    <div :class="display">
-      <p id="entry">{{entryData}}</p>
+    <div class="display">
+      <p id="lastEntry">{{lastEntry}}</p>
+      <p id="entryHistory">{{entryHistory}}</p>
     </div>
     <div>
       <button @click="addEntry">7</button>
       <button @click="addEntry">8</button>
       <button @click="addEntry">9</button>
-      <button @click="addEntry">/</button>
+      <button @click="addEntry">+</button>
     </div>
     <div>
       <button @click="addEntry">4</button>
       <button @click="addEntry">5</button>
       <button @click="addEntry">6</button>
-      <button @click="addEntry">*</button>
+      <button @click="addEntry">-</button>
     </div>
     <div>
       <button @click="addEntry">1</button>
       <button @click="addEntry">2</button>
       <button @click="addEntry">3</button>
-      <button @click="addEntry">-</button>
+      <button @click="addEntry">x</button>
     </div>
     <div>
       <button @click="addEntry">0</button>
       <button @click="addEntry">.</button>
-      <button @click="addEntry">+</button>
-      <button @click="calculateEntries">=</button>
+      <button @click="addEntry">x2</button>
+      <button @click="addEntry">/</button>      
     </div>
     <div>
       <button id="clear" @click ="clearEntries">C</button>
+      <button @click="addEntry">√</button>
+      <button @click="calculateEntries">=</button>
     </div>
   </section>
 </body>

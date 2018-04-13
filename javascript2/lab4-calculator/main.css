@@ -3,32 +3,68 @@
   font-size: 20px;
 }
 
+@font-face {
+    font-family: digitalFont;
+    src: url(digital-7.ttf);
+}
+
+#root {
+  background-color: lightgray;
+  border-radius: 5px;
+  box-shadow: 10px 10px 50px;
+  padding: 15px;
+  width: 205px;
+  margin: 50px auto;
+}
+
 body {
   background-color: gray;
 }
 
-section {
-  width: 175px;
-  margin: auto;
+p {
+  margin: 0;
+  font-family: digitalFont;
+  padding: 0 8px 0 0; 
+}
+
+#lastEntry {
+  font-size: 1.2em;
+}
+
+#entryHistory {
+  color: gray;
+  font-size: 0.8em;
 }
 
 button {
+  color: white;
+  font-family: digitalFont;
+  background-color: #3b3b3b;
+  border: none;
   width: 40px;
-  margin: 2px 0px;
-}
-
-p {
-  margin: 0; 
-  padding: 0 8px 0 0; 
+  height: 35px;
+  margin: 4px 0px;
+  border-radius: 5px;
+  box-shadow: 0 2px black;
+  padding-top: 5px
 }
 
 .display {
   display: inline-block;
-  background-color: white;
-  height: 30px;
+  background-color: #c3c2ab;
+  border: 1px solid #b4b39d;
+  height: 50px;
   width: 100%;
   border-radius: 4px;
   text-align: right;
   padding: 5px;
   margin-bottom: 3px;
 }
+
+#clear {
+  background-color: #a72d45;
+  width: 85px;
+}
+
+
+
