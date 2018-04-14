@@ -1,0 +1,145 @@
+<DOCTYPE! html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <!-- INSTRUCTIONS: 
+    Vue.js är ett JavaScript-bibliotek som vi använder i stället för vanlig DOM-manipulation. Du ska alltså använda Vue-syntax i stället för funktionerna getElement, createElement osv.
+
+    1 Skapa en webbsida som länkar till Vue.js i <head>. Skriv kod i <head> som skapar ett inställningsobjekt och ett Vue-objekt när sidan laddas. Det ska finnas en egenskap med namnet x i data-sektionen. Använd mustacher för att klistra in värdet av egenskapen på webbsidan: {{ x }}. Utgå från exemplen i slides.
+
+    2 Fortsätt med webbsidan. Skriv fler mustacher, som räknar ut ett värde genom att lägga ihop strängar eller tal.
+
+    3 Lägg till HTML-element som har en CSS-klass. Men i stället för att skriva CSS-klassen direkt på elementet ska du skriva CSS-klassen i en egenskap i data-objektet och binda den till CSS-egenskapen för HTML-elementet.
+    CSS: .fancyButton { background-color: hotpink; }
+    data: { buttonCss: 'fancyButton' }
+
+    3 Lägg till en egenskap i data-objektet med namnet "counter" och ett HTML-element som visar värdet. Gör ett button-element med texten "Reset". När man klickar på knappen ska värdet på counter sättas till noll.
+
+    4 Gör en knapp med texten "increase" och en med texten "decrease". När man klickar på dem ska värdet på "counter" ökas respektive minskas med ett.
+
+    5 Skriv HTML och CSS enligt följande mönster. Men istället för att ange CSS-klassen direkt ska ni använda v-bind för att koppla elementets CSS-klass till en egenskap i data-objektet. Skapa sedan två knappar som ändrar värde på egenskapen när man klickar på den. Idén är att man ska kunna byta tema (ändra utseende) på flera HTML-element samtidigt. Obs: skriv snyggare CSS.
+    HTML:
+    <div class="themeBlue">
+        <h1>Rubrik</h1>
+        <p>Lite text</p>
+    </div>
+
+    CSS:
+    div.themeBlue { background-color: blue; }
+    .themeBlue h1 { color: blue; }
+    .themeBlue p { color: blue; }
+
+    div.themeRed { }
+    /* osv. */
+
+    6 Skapa en checkbox och en button. Button-elementet ska bara vara klickbart (disabled==false) när checkboxen är ikryssad. Gör två versioner: först med hjälp av en klickfunktion, sedan med v-model.
+
+    7 Gör knappar som gör andra element synliga eller osynliga när man klickar på dem. Använd v-if.
+
+    8 Skapa ett formulär där en användare kan skriva in uppgifter. Formulärelementen ska använda "data binding" med v-model för att kopplas ihop med egenskaper i data-objektet. Men egenskaperna ska inte ligga direkt i data-objektet utan vara samlade i ett nytt objekt:
+    data: {
+    user: {
+    name: '' // här
+    }
+    }
+    -->
+  <title>Exercises for 3 - Vue.js</title>
+  <style>
+    .textColorGreen {
+      color: green; 
+    }
+    .blueTheme {
+      background-color: #27A7FF;
+    }
+    .blueTheme h1, .blueTheme button {
+      color: #3341FF;
+    }
+    .blueTheme p {
+      color: #8E27FF;
+    }
+    .redTheme {
+      background-color: #E82258;
+    }
+    .redTheme h1, .redTheme button {
+      color: #FF3A32;
+    }
+    .redTheme p {
+      color: #FF6225;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    window.addEventListener("load", () => {
+      let vm = new Vue({
+        el: "#root",
+        data: {
+          x: "hej",
+          x2: " på dig",
+          tal1: 3,
+          tal2: 4,
+          counter: 0,
+          textColorGreen: "textColorGreen",
+          blueTheme: "blueTheme",
+          redTheme: "redTheme",
+          checked: false
+        }, //data
+        methods: {
+          increase() {
+            this.counter++;
+          },
+          decrease() {
+            this.counter--;
+          },
+          resetCounter() {
+            this.counter = 0;
+          },
+          switchToBlueTheme() {
+            this.$refs["divColorTheme"].classList.remove("redTheme");
+            this.$refs["divColorTheme"].classList.add("blueTheme");
+
+          },
+          switchToRedTheme() {
+            this.$refs["divColorTheme"].classList.remove("blueTheme");
+            this.$refs["divColorTheme"].classList.add("redTheme");
+          },
+          toggleDisableBtn() {
+            if (this.checked) {
+              this.$refs["buttonToDisable"].setAttribute("disabled", "disabled");
+            } else {
+              this.$refs["buttonToDisable"].removeAttribute("disabled");
+            }
+          },
+          showParagraph() {
+            this.$refs["invisibleParagraph"].setAttribute("v-show", "true");
+          }
+        }
+      }); //vm
+    }); //window.load 
+  </script>
+</head>
+<body>
+  <div id = root>{{ x + x2 }} <br>
+    {{ tal1 + tal2 }}
+    <p :class="textColorGreen">Jag är grön</p>
+    {{ counter }} <br>
+    <button @click="increase">Increase</button>
+    <button @click="decrease">Decrease</button>
+    <button @click="resetCounter">Reset</button>
+    <div ref="divColorTheme">
+      <h1>Honey I can change</h1>
+      <p>Just because you change color doesn't mean you are any different!</p>
+      <button @click=switchToBlueTheme>I Can Be Blue</button>
+      <button @click=switchToRedTheme>I Can Be Red</button>
+    </div>
+    <input @click=toggleDisableBtn type="checkbox" id="checkbox" v-model="checked">
+    <button @click=showParagraph ref="buttonToDisable" disabled>Check the box or I wont work</button>
+    <p ref="invisibleParagraph" v-show="false">Look Nothing Happened!</p>
+  </div> <!-- root -->
+</body>
+</html>
+  
+  
+  
+  
+  
+  
