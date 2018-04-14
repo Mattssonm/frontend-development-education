@@ -8,7 +8,7 @@
     src: url(digital-7.ttf);
 }
 
-#root {
+#calculator {
   background-color: lightgray;
   border-radius: 5px;
   box-shadow: 10px 10px 50px;
@@ -64,6 +64,21 @@ button {
 #clear {
   background-color: #a72d45;
   width: 85px;
+}
+
+#savedCalcs {
+  width: 205px;
+  margin: auto;
+  padding: 10px 30px;
+/*  background-color: rgba(255, 255, 255, 0.4);*/
+  background-color: #c3c2ab;
+  border: 1px solid #b4b39d;
+  border-radius: 4px;
+}
+
+#savedCalcs li {
+  list-style-type: none;
+  font-family: digitalFont;
 }
 
 

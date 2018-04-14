@@ -19,7 +19,7 @@ Kriterier för väl godkänt:
 []knappar för operationerna x2 och √ (roten ur)
 []knappen för roten ur ska bara vara synlig när resultatet är ett positivt tal
 []appen håller en historik över tidigare uträkningar
-[]varje gång man klickar på = ska det uträknade resultatet sparas i en []lista, som också ska vara synlig för användaren
+[]varje gång man klickar på = ska det uträknade resultatet sparas i en lista, som också ska vara synlig för användaren
 
 Exempel på användningsfall. Användaren vill räkna ut "42+2-40".
 skriver in talen 42
