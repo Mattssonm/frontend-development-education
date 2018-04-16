@@ -7,28 +7,38 @@ window.addEventListener("load", event => {
       entriesToCalc: [],
       savedCalcs: [],
       operator: "",
-      showList: false
+      showList: false,
+      lastEntryIsSum: false,
     },
     methods: {
       addEntry: function(event) {
         let entry = event.path[0].innerHTML;
         
         if (this.entryHistory.includes("=")) {
-          this.entryHistory = this.lastEntry;
+          this.entryHistory = String(this.lastEntry);
         }
         
         //if entry is an operator
-        if (isNaN(entry)) {
+        if (isNaN(entry) && entry != ".") {
           //push the latest number typed in
           this.entriesToCalc.push(Number(this.lastEntry));
+          
+          //if previous operands exist
+          if (this.includesOperand(this.entryHistory)) {
+            this.lastEntry = this.evaluate(this.entriesToCalc);
+            this.entriesToCalc = [this.lastEntry];
+            this.lastEntryIsSum = true;
+          } else {
           //assign the operator to last entry
           this.lastEntry = entry;
+          }
           //push the operator
-          this.entriesToCalc.push(this.lastEntry);
+          this.entriesToCalc.push(entry);
           
           //if lastEntry is 0 or an operator, replace it
-        } else if (this.lastEntry == 0 || isNaN(this.lastEntry)) {
+        } else if (this.lastEntry == 0 || isNaN(this.lastEntry) || this.lastEntryIsSum === true) {
           this.lastEntry = entry;
+          this.lastEntryIsSum = false;
 
           //else add it
         } else {
@@ -46,7 +56,7 @@ window.addEventListener("load", event => {
       clearEntries: function() {
         this.entryHistory = "0";
         this.lastEntry = 0;
-        this.entryArr = [];
+        this.entriesToCalc = [];
       },
       
       clearAll: function() {
@@ -56,7 +66,9 @@ window.addEventListener("load", event => {
       
       calculateEntries: function() {
         this.entriesToCalc.push(Number(this.lastEntry));
-        this.evaluate(this.entriesToCalc);
+        let result = this.evaluate(this.entriesToCalc);
+        this.lastEntry = result;
+        this.entryHistory += "=" + result;
         this.entriesToCalc = [];
         this.savedCalcs.push(this.entryHistory);
         this.showList = true;
@@ -80,8 +92,18 @@ window.addEventListener("load", event => {
             result += ops[arr[i]](arr[i-1], arr[i+1])
           }
         }
-        this.lastEntry = result;
-        this.entryHistory += "=" + result;
+        return result;
+      },
+      
+      includesOperand: function(str) {
+        let opsArr = ["+", "-", "/", "*"];
+        let bool = false;
+        opsArr.forEach(function(op) {
+          if (str.includes(op)) {
+            bool = true;
+          }
+        });
+        return bool;
       }
     } //methods
   }); //vm
