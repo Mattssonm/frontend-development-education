@@ -36,12 +36,12 @@
       <div>
         <button @click="addEntry">0</button>
         <button @click="addEntry">.</button>
-        <button @click="addEntry">x2</button>
+        <button @click="square2">x2</button>
         <button @click="addEntry">/</button>      
       </div>
       <div>
         <button id="clear" @click ="clearEntries">C</button>
-        <button @click="addEntry">√</button>
+        <button @click="addEntry" v-bind:disabled="rootDisabled">√</button>
         <button @click="calculateEntries">=</button>
       </div>
     </section>

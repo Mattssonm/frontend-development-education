@@ -6,14 +6,15 @@ window.addEventListener("load", event => {
       entryHistory: "0",
       entriesToCalc: [],
       savedCalcs: [],
-      operator: "",
       showList: false,
       lastEntryIsSum: false,
+      rootDisabled: false
     },
     methods: {
       addEntry: function(event) {
         let entry = event.path[0].innerHTML;
         
+        //if previous evaluation has been done
         if (this.entryHistory.includes("=")) {
           this.entryHistory = String(this.lastEntry);
         }
@@ -29,14 +30,17 @@ window.addEventListener("load", event => {
             this.entriesToCalc = [this.lastEntry];
             this.lastEntryIsSum = true;
           } else {
-          //assign the operator to last entry
-          this.lastEntry = entry;
+            
+            //assign the operator to last entry
+            this.lastEntry = entry;
           }
-          //push the operator
-          this.entriesToCalc.push(entry);
           
-          //if lastEntry is 0 or an operator, replace it
-        } else if (this.lastEntry == 0 || isNaN(this.lastEntry) || this.lastEntryIsSum === true) {
+            //push the operator
+            this.entriesToCalc.push(entry);
+          }
+        
+        //if lastEntry is 0, an operator or lastentry is a previous sum, replace it
+        if (this.lastEntry == 0 || isNaN(this.lastEntry) || this.lastEntryIsSum === true) {
           this.lastEntry = entry;
           this.lastEntryIsSum = false;
 
@@ -48,25 +52,35 @@ window.addEventListener("load", event => {
         //if entry is zero, replace it
         if (this.entryHistory == 0) {
           this.entryHistory = entry;
-          //else add it
+          
+        //swap places if entry is √
+        } else if (entry == "√") {
+          this.entryHistory= this.lastEntry += this.entryHistory;
+          
+        //else add it
         } else {
           this.entryHistory += entry;
         }
+
       },
       clearEntries: function() {
         this.entryHistory = "0";
         this.lastEntry = 0;
         this.entriesToCalc = [];
-      },
-      
-      clearAll: function() {
-        this.clearEntries();
-        this.savedCalcs = [];
+        this.rootDisabled = false;
       },
       
       calculateEntries: function() {
         this.entriesToCalc.push(Number(this.lastEntry));
+        console.log(this.entriesToCalc);
         let result = this.evaluate(this.entriesToCalc);
+        
+        //if the result is less than 0 disable square root
+        if (result < 0) {
+          this.rootDisabled = true;
+        } else {
+          this.rootDisabled = false;
+        }
         this.lastEntry = result;
         this.entryHistory += "=" + result;
         this.entriesToCalc = [];
@@ -80,17 +94,16 @@ window.addEventListener("load", event => {
           '+': (x, y) => x + y,
           '-': (x, y) => x - y,
           '/': (x, y) => x / y,
-          '*': (x, y) => x * y
+          '*': (x, y) => x * y,
+          '√': (x) => Math.sqrt(x)
         }
         
+        //if array only contains 1 item
         if (arr.length == 1) {
           return arr[0];
+        
         } else {
-          //result += ops[arr[1]](arr[0], arr[2]);
-          
-          for (let i = 1; i<arr.length; i+=2) {
-            result += ops[arr[i]](arr[i-1], arr[i+1])
-          }
+          result += ops[arr[1]](arr[0], arr[2]);
         }
         return result;
       },
@@ -98,13 +111,20 @@ window.addEventListener("load", event => {
       includesOperand: function(str) {
         let opsArr = ["+", "-", "/", "*"];
         let bool = false;
+        
         opsArr.forEach(function(op) {
           if (str.includes(op)) {
             bool = true;
           }
         });
         return bool;
-      }
+      },
+      
+      square2: function() {
+        this.lastEntry = this.lastEntry * this.lastEntry;
+        this.entryHistory += "^2";
+      
+      },
     } //methods
   }); //vm
 }); //window.load
