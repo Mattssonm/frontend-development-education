@@ -95,13 +95,14 @@ window.addEventListener("load", event => {
           '-': (x, y) => x - y,
           '/': (x, y) => x / y,
           '*': (x, y) => x * y,
-          '√': (x) => Math.sqrt(x)
         }
         
         //if array only contains 1 item
         if (arr.length == 1) {
           return arr[0];
-        
+          
+        } else if (arr[1] == '√') {
+         result += Math.sqrt(arr[0]);
         } else {
           result += ops[arr[1]](arr[0], arr[2]);
         }
