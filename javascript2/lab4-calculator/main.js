@@ -19,6 +19,7 @@ window.addEventListener("load", event => {
           this.entryHistory = String(this.lastEntry);
         }
         
+        //decide the value of lastEntry
         //if entry is an operator
         if (isNaN(entry) && entry != ".") {
           //push the latest number typed in
@@ -31,20 +32,19 @@ window.addEventListener("load", event => {
             this.lastEntryIsSum = true;
           } else {
             
-            //assign the operator to last entry
+            //replace the operator to last entry
             this.lastEntry = entry;
           }
           
             //push the operator
             this.entriesToCalc.push(entry);
-          }
-        
+
         //if lastEntry is 0, an operator or lastentry is a previous sum, replace it
-        if (this.lastEntry == 0 || isNaN(this.lastEntry) || this.lastEntryIsSum === true) {
+        } else if (this.lastEntry == 0 || isNaN(this.lastEntry) || this.lastEntryIsSum === true) {
           this.lastEntry = entry;
           this.lastEntryIsSum = false;
 
-          //else add it
+        //else add it
         } else {
           this.lastEntry += entry;
         }
@@ -68,6 +68,7 @@ window.addEventListener("load", event => {
         this.lastEntry = 0;
         this.entriesToCalc = [];
         this.rootDisabled = false;
+        this.lastEntryIsSum = false;
       },
       
       calculateEntries: function() {
