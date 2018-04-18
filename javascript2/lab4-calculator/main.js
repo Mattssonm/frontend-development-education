@@ -12,7 +12,7 @@ window.addEventListener("load", event => {
     },
     methods: {
       addEntry: function(event) {
-        let entry = event.path[0].innerHTML;
+        let entry = event.target.innerHTML;
         
         //if previous evaluation has been done
         if (this.entryHistory.includes("=")) {
