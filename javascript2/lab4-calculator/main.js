@@ -72,7 +72,7 @@ window.addEventListener("load", event => {
       
       calculateEntries: function() {
         this.entriesToCalc.push(Number(this.lastEntry));
-        console.log(this.entriesToCalc);
+    
         let result = this.evaluate(this.entriesToCalc);
         
         //if the result is less than 0 disable square root
